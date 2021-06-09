@@ -43,8 +43,14 @@ router.post('/login', async (req, res, next) => {
         var pass1=crypto.AES.decrypt(user.contraseña,'ayd1').toString(crypto.enc.Utf8);
         var pass2=crypto.AES.decrypt(contraseña,'ayd1').toString(crypto.enc.Utf8);
         if (pass1 === pass2) {
-          return res.send(user);
-
+          if(user.status=== 1){
+            return res.send(user);
+          }else{
+            return res.status(401).send({
+              codigoEstado: 401,
+              mensaje: "Cuenta aún no aceptada"
+            });
+          }
         } else {
           return res.status(400).send({
             codigoEstado: 400,
@@ -67,7 +73,58 @@ router.post('/login', async (req, res, next) => {
     });
 
 })
-
+router.get('/getallnoacepted', async (req,res,next)=>{
+  const status = {status:1};
+  usuarios.find(status)
+  .then(users=>{
+    if(users){
+      res.status(200).send({
+        codigoEstado: 200,
+        mensaje: "Success",
+        data: users
+      });
+    }else{
+      res.status(200).send({
+        codigoEstado: 200,
+        mensaje: "No existe usuario con ese status ",
+        data: []
+      });
+    }
+  });
+})
+router.post('/updatestatus', async (req, res, next) => {
+  status = 0;
+  const { username } = req.body;
+  usuarios.findOne({username})
+  .then(user=>{
+    if(user){
+      user.status = status;
+      newdatausr = user;
+      usuarios.updateOne({username}, newdatausr,async(err,res)=>{
+        if(err){
+          return({
+            codigoEstado: 400,
+            mensaje: "Existio algun error con el usuario "+username
+          });
+        }else{
+          return({
+            codigoEstado: 200,
+            mensaje: "Usuario actualizado con exito"
+          });
+        }
+      })
+      res.status(200).send({
+        codigoEstado: 200,
+        mensaje: "Usuario actualizado con exito"
+      });
+    }else{
+      res.status(404).send({
+        codigoEstado: 404,
+        mensaje: "No existe usuario con username " + username
+      });
+    }
+  })
+})
 
 
 module.exports = router;

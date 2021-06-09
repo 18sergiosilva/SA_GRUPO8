@@ -11,7 +11,7 @@ var usuarioSchema = new mongoose.Schema({
     },
     apellidos: {
         type: String,
-        required: true
+        required: false
     },
     correo: {
         type: String,
@@ -28,6 +28,10 @@ var usuarioSchema = new mongoose.Schema({
     contraseña: {
         type: String,
         required: false
+    },
+    status:{
+        type:Number,
+        required: true
     },
     tipoUsuario:{
         type:Number,
