@@ -25,7 +25,9 @@ router.post('/', async (req, res, next) => {
             precio:req.body.precio,
             descripcion:req.body.descripcion,
             imagen: req.body.imagen,
-            urlImagen: ""
+            urlImagen: "",
+            Edtitorial: req.body.Edtitorial,
+            Genero: req.body.Genero
         };
 
         if (existe == false) {
