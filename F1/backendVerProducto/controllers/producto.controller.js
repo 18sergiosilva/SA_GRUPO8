@@ -72,5 +72,72 @@ module.exports = {
                 mensaje: "Ocurrio un error al buscar el producto."
             })
         })
+    },
+
+    getbyEditorial: (req, res) => {
+        const Editorial = req.params.editorial;
+
+        
+        var usuario = "noLogin";
+        var idUsuario = "noLogin";
+        var obj = {};
+        //var orden = {};
+        //console.log("idUsuarioi --> " + req.headers.idusuario);
+        if (req.headers.usuario) usuario = req.headers.usuario;
+        if (req.headers.idusuario) idUsuario = req.headers.idusuario;
+
+        
+        modelProducto.findByEditorial(Editorial).then(producto => {
+            if(producto){
+                obj = producto;
+                logs.logOperacionOrden("Consultar producto", obj._id,usuario,idUsuario,"Usuario","servicio ver Producto", obj);
+                return res.send(producto);
+            } else {
+                logs.logErrores("Error::No existe producto con Editorial " + Editorial, usuario,idUsuario,"Usuario","servicio ver Producto");
+                return res.status(404).send({
+                    mensaje: "No existe producto con Editorial " + Editorial
+                })
+            }
+        }).catch(err => {
+            console.log(err);
+            logs.logErrores("Error::Ocurrio un error al buscar el producto msg:: " + err, usuario,idUsuario,"Sistema","servicio ver Producto");
+            return res.status(500).send({
+                mensaje: "Ocurrio un error al buscar el producto."
+            })
+        })
+    },
+
+
+    getbyGenero: (req, res) => {
+        const Genero = req.params.genero;
+
+        
+        var usuario = "noLogin";
+        var idUsuario = "noLogin";
+        var obj = {};
+        //var orden = {};
+        //console.log("idUsuarioi --> " + req.headers.idusuario);
+        if (req.headers.usuario) usuario = req.headers.usuario;
+        if (req.headers.idusuario) idUsuario = req.headers.idusuario;
+
+        
+        modelProducto.findByGenero(Genero).then(producto => {
+            if(producto){
+                obj = producto;
+                logs.logOperacionOrden("Consultar producto", obj._id,usuario,idUsuario,"Usuario","servicio ver Producto", obj);
+                return res.send(producto);
+            } else {
+                logs.logErrores("Error::No existe producto con genero " + Genero, usuario,idUsuario,"Usuario","servicio ver Producto");
+                return res.status(404).send({
+                    mensaje: "No existe producto con genero " + Genero
+                })
+            }
+        }).catch(err => {
+            console.log(err);
+            logs.logErrores("Error::Ocurrio un error al buscar el producto msg:: " + err, usuario,idUsuario,"Sistema","servicio ver Producto");
+            return res.status(500).send({
+                mensaje: "Ocurrio un error al buscar el producto."
+            })
+        })
     }
 }

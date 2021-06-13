@@ -24,4 +24,5 @@ db.once('open', () => {
     console.log('DB-STATUS:: connected'); // si esta todo ok, imprime esto
 });
 
-module.exports = mongoose;
+module.exports = `mongodb+srv://administrator:1234@cluster0.bmddi.mongodb.net/SAProjectG8?retryWrites=true&w=majority`;
+

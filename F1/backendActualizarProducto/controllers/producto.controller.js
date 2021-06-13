@@ -24,7 +24,9 @@ module.exports = {
             precio:"",
             descripcion:"",
             imagen:"",
-            urlImagen:""
+            urlImagen:"",
+            Editorial:"",
+            Genero:""
         };
 
         var productoActualizado = {
@@ -34,7 +36,9 @@ module.exports = {
             precio:"",
             descripcion:"",
             imagen:"",
-            urlImagen:""
+            urlImagen:"",
+            Editorial:"",
+            Genero:""
         };
 
         productoActualizado.id = idProducto;
@@ -49,7 +53,15 @@ module.exports = {
         if (descripcion){
             update.descripcion = descripcion;
             productoActualizado.descripcion = descripcion;
+        }if (Editorial){
+            update.Editorial = Editorial;
+            productoActualizado.Editorial = Editorial; 
         } 
+        if (Genero){
+            update.Genero = Genero;
+            productoActualizado.Genero = Genero;
+        } 
+
 
         
 
