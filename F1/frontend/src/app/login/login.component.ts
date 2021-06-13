@@ -17,12 +17,12 @@ export class LoginComponent implements OnInit {
   correo: string;
   contra: string;
   incorrecto = false;
-  contrasenaEn = "";
-  encPass = "ayd1";
+
+  endpoint = "https://localhost:3000";
 
   ngOnInit() {
-    if (localStorage.getItem('logued') === '1') {
-      localStorage.setItem('logued', '0');
+    if (localStorage.getItem('logged') === '1') {
+      localStorage.setItem('logged', '0');
       this.router.navigate(['login']);
     }
     Utils.indices = [
@@ -48,17 +48,32 @@ export class LoginComponent implements OnInit {
       }
     ];
   }
+
+  entrarAux(){
+    console.log(this.correo);
+    console.log(this.contra);
+    localStorage.setItem('user', 'admin');
+    localStorage.setItem('logged', '1');
+    localStorage.setItem('userid','1');
+    localStorage.setItem('tipoUsuario','0');
+    if(localStorage.getItem('tipoUsuario') ==='0'){
+      this.router.navigate(['vista-admin']);
+    }
+
+  }
+
   entrar() {
-    this.encriptarContrasena();
-    this.http.post('http://3.140.186.177:3005/users/login',
+    this.http.post(this.endpoint+'/users/login',
       {
         'username': this.correo,
-        'contraseña': this.contrasenaEn
+        'contraseña': this.contra
       }).subscribe((data: any) => {
         localStorage.setItem('user', data.username);
-        localStorage.setItem('logued', '1');
+        localStorage.setItem('logged', '1');
         localStorage.setItem('userid',data._id);
         localStorage.setItem('tipoUsuario',data.tipoUsuario);
+
+        //MENUS
         Utils.indices = [
           {
             title: 'Catalogo Productos',
@@ -76,7 +91,42 @@ export class LoginComponent implements OnInit {
             icon: 'mdi-clipboard-check'
           }
         ];
-        if (localStorage.getItem('tipoUsuario') === '1') {
+        //USUARIO ADMIN
+        if(localStorage.getItem('tipoUsuario') ==='0'){
+          this.router.navigate(['admin']);
+        }
+        //USUARIO CLIENTE
+        else if (localStorage.getItem('tipoUsuario') === '1') {
+          Utils.indices.push(
+            {
+              title: 'Agregar Producto',
+              url: '/crear',
+              icon: 'mdi-pencil'
+            },
+            {
+              title: 'Modificar Producto',
+              url: '/modificar',
+              icon: 'mdi-folder-upload'
+            },
+            {
+              title: 'Eliminar Producto',
+              url: '/eliminar',
+              icon: 'mdi-delete'
+            },
+            {
+              title: 'Estado de Ordenes',
+              url: '/ordenes-estado',
+              icon: 'mdi-clipboard-text-outline'
+            },
+            {
+              title: 'Eliminar Orden',
+              url: '/eliminarorden',
+              icon: 'mdi-folder-remove'
+            }
+          );
+        }
+        //USUARIO EDITORIAL
+        else if (localStorage.getItem('tipoUsuario') === '2') {
           Utils.indices.push(
             {
               title: 'Agregar Producto',
@@ -113,7 +163,7 @@ export class LoginComponent implements OnInit {
           }
         );
         this.router.navigate(['home']);
-        localStorage.setItem("producto","");
+        //localStorage.setItem("producto","");
       },
         (error: HttpErrorResponse) => {
           this.cancelar();
@@ -126,12 +176,5 @@ export class LoginComponent implements OnInit {
     this.contra = '';
     this.incorrecto = false;
   }
-
-
-  encriptarContrasena() {
-    this.contrasenaEn = this.contra;
-    this.contrasenaEn = crypto.AES.encrypt(this.contrasenaEn.trim(), this.encPass.trim()).toString();
-  }
-
 
 }

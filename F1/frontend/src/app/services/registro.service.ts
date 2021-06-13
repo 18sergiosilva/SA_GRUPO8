@@ -10,8 +10,10 @@ export class RegistroService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  endpoint = "https://localhost:3000";
+
   registrarCliente(cliente) {
-    let apiUrl = 'http://3.140.186.177:3005/users/register';
+    let apiUrl = this.endpoint+'/users/register';
     return this.http.post<any>(apiUrl, cliente)
       .pipe(map(data => {
         return data;

@@ -32,6 +32,7 @@ import { ConsultarOrdenComponent } from './consultar-orden/consultar-orden.compo
 import { CrearOrdenComponent } from './crear-orden/crear-orden.component';
 import { EliminarOrdenComponent } from './eliminar-orden/eliminar-orden.component';
 import { OrdenesEstadoComponent } from './ordenes-estado/ordenes-estado.component';
+import { VistaAdminComponent } from './vista-admin/vista-admin.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { OrdenesEstadoComponent } from './ordenes-estado/ordenes-estado.componen
     ConsultarOrdenComponent,
     CrearOrdenComponent,
     EliminarOrdenComponent,
-    OrdenesEstadoComponent
+    OrdenesEstadoComponent,
+    VistaAdminComponent
   ],
   imports: [
     BrowserModule,
