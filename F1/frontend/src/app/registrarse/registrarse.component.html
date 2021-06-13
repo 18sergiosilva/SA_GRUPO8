@@ -13,7 +13,7 @@
                             <label class="col-sm-3 col-form-label">Username</label>
                             <div class="col-sm-9">
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" [(ngModel)]="username" name="usernameU" />
+                                    <input type="text" class="form-control" [(ngModel)]="username" name="username" />
                                 </div>
                             </div>
                         </div>
@@ -23,7 +23,7 @@
                             <label class="col-sm-3 col-form-label">Correo</label>
                             <div class="col-sm-9">
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" [(ngModel)]="correo" name="correoU" />
+                                    <input type="text" class="form-control" [(ngModel)]="correo" name="correo" />
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                             <label class="col-sm-3 col-form-label">Nombres</label>
                             <div class="col-sm-9">
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" [(ngModel)]="nombres" name="nombresU" />
+                                    <input type="text" class="form-control" [(ngModel)]="nombres" name="nombres" />
                                 </div>
                             </div>
                         </div>
@@ -77,21 +77,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Confirmar Contraseña</label>
-                            <div class="col-sm-9">
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control" [(ngModel)]="contrasena2"
-                                        name="contrasena2" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Direccion</label>
                             <div class="col-sm-9">
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" [(ngModel)]="direccion" name="direccionU" />
+                                    <input type="text" class="form-control" [(ngModel)]="direccion" name="direccion" />
                                 </div>
                             </div>
                         </div>
@@ -101,9 +90,9 @@
                             <label class="col-sm-3 col-form-label">Tipo de usuario</label>
                             <div class="col-sm-9">
                                 <div class="col-sm-9">
-                                    <select class="form-control" [(ngModel)]="usuario" name="tipoUsuario">
-                                        <option value=0>Cliente</option>
-                                        <option value=1>Administrador</option>
+                                    <select class="form-control" [(ngModel)]="tipoUsuario" name="tipoUsuario">
+                                        <option value=1>Cliente</option>
+                                        <option value=2>Editorial</option>
                                     </select>
                                 </div>
                             </div>
