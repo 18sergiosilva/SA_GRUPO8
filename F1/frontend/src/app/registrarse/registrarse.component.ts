@@ -17,32 +17,30 @@ export class RegistrarseComponent implements OnInit {
   ngOnInit() {
   }
 
+  //datos
   username = "";
-  correo = "";
-  contrasena = "";
-  contrasena2 = "";
   nombres = "";
   apellidos = "";
+  correo = "";
   telefono = "";
   direccion = "";
-  telefonoEn = "";
-  direccionEn = "";
-  contrasenaEn = "";
-  usuario = 2;
-  encPass = "ayd1";
+  contrasena = "";
+  status=0; //0 para un usuario que desea ser activado
+  tipoUsuario="";
+
 
   agregar() {
     if (this.camposLLenos() == true) {
-      if (this.verificarContraseña() == true) {
         const cliente = {
           "username": this.username,
           "nombres": this.nombres,
           "apellidos": this.apellidos,
           "correo": this.correo,
-          "telefono": this.telefonoEn,
-          "direccion": this.direccionEn,
-          "contraseña": this.contrasenaEn,
-          "tipoUsuario": this.usuario
+          "telefono": this.telefono,
+          "direccion": this.direccion,
+          "contrasena": this.contrasena,
+          "status":this.status,
+          "tipoUsuario":this.tipoUsuario
         }
         this.servicioRegistrar
           .registrarCliente(cliente)
@@ -89,7 +87,6 @@ export class RegistrarseComponent implements OnInit {
               }
             }
           );
-      }
     }
     else {
       Swal.fire({
@@ -101,51 +98,20 @@ export class RegistrarseComponent implements OnInit {
   }
 
   camposLLenos(): boolean {
-    if (this.username != "" && this.nombres != "" && this.apellidos != "" && this.contrasena != "" && this.contrasena2 != "" && this.correo != "" && this.telefono != "" && this.direccion != "" && this.usuario != 2) {
+    if (this.username != "" && this.nombres != "" && this.contrasena != "" && this.correo != "" && this.telefono != "" && this.direccion != "" ) {
+      console.log("DATOS:");
+      console.log(this.username );
+      console.log(this.nombres);
+      console.log(this.contrasena);
+      console.log(this.correo);
+      console.log(this.telefono);
+      console.log(this.direccion);
+      console.log(this.tipoUsuario);
+      console.log(this.status);
       return true
     }
     return false
   }
-
-  verificarContraseña(): boolean {
-    if (this.contrasena != this.contrasena2) {
-      Swal.fire({
-        text: 'Error contraseñas no coinciden',
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-      }).then(resultado => {
-        if (resultado.value) {
-          this.contrasena = "";
-          this.contrasena2 = "";
-        }
-      });
-      return false;
-    }
-    else {
-      this.encriptarDireccion();
-      this.encriptarTelefono();
-      this.encriptarContrasena();
-      return true;
-    }
-  }
-
-  encriptarTelefono() {
-    this.telefonoEn = this.telefono.toString();
-    this.telefonoEn = crypto.AES.encrypt(this.telefonoEn.trim(), this.encPass.trim()).toString();
-  }
-
-  encriptarDireccion() {
-    this.direccionEn = this.direccion;
-    this.direccionEn = crypto.AES.encrypt(this.direccionEn.trim(), this.encPass.trim()).toString();
-    //crypto.AES.decrypt(this.direccionEn.trim(), this.encPass.trim()).toString(crypto.enc.Utf8);
-  }
-
-  encriptarContrasena() {
-    this.contrasenaEn = this.contrasena;
-    this.contrasenaEn = crypto.AES.encrypt(this.contrasenaEn.trim(), this.encPass.trim()).toString();
-    //crypto.AES.decrypt(this.direccionEn.trim(), this.encPass.trim()).toString(crypto.enc.Utf8);
-  }
-
 
   cancelar() {
     this.username = "";
@@ -155,7 +121,8 @@ export class RegistrarseComponent implements OnInit {
     this.apellidos = "";
     this.telefono = "";
     this.direccion = "";
-    this.contrasena2 = "";
+    this.status=0;
+    this.tipoUsuario="";
   }
 
 }
