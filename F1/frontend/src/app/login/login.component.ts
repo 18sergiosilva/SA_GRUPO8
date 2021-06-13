@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   correo: string;
   contra: string;
   incorrecto = false;
-  encPass = "ayd1";
+
+  endpoint = "https://localhost:3000";
 
   ngOnInit() {
     if (localStorage.getItem('logged') === '1') {
@@ -48,8 +49,21 @@ export class LoginComponent implements OnInit {
     ];
   }
 
+  entrarAux(){
+    console.log(this.correo);
+    console.log(this.contra);
+    localStorage.setItem('user', 'admin');
+    localStorage.setItem('logged', '1');
+    localStorage.setItem('userid','1');
+    localStorage.setItem('tipoUsuario','0');
+    if(localStorage.getItem('tipoUsuario') ==='0'){
+      this.router.navigate(['vista-admin']);
+    }
+
+  }
+
   entrar() {
-    this.http.post('http://3.140.186.177:3005/users/login',
+    this.http.post(this.endpoint+'/users/login',
       {
         'username': this.correo,
         'contraseña': this.contra

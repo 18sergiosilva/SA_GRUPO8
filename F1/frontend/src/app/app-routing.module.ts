@@ -20,7 +20,8 @@ import { CatalogoProductosComponent } from './catalogo-productos/catalogo-produc
 import { ConsultarOrdenComponent } from './consultar-orden/consultar-orden.component';
 import { CrearOrdenComponent } from './crear-orden/crear-orden.component';
 import { EliminarOrdenComponent } from './eliminar-orden/eliminar-orden.component';
-import { OrdenesEstadoComponent } from './ordenes-estado/ordenes-estado.component'
+import { OrdenesEstadoComponent } from './ordenes-estado/ordenes-estado.component';
+import { VistaAdminComponent } from './vista-admin/vista-admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -43,7 +44,8 @@ const routes: Routes = [
   { path: 'consultar', component: ConsultarOrdenComponent },
   { path: 'crear-orden',component: CrearOrdenComponent},
   { path: 'eliminarorden', component: EliminarOrdenComponent},
-  { path: 'ordenes-estado', component: OrdenesEstadoComponent}
+  { path: 'ordenes-estado', component: OrdenesEstadoComponent},
+  { path: 'vista-admin', component: VistaAdminComponent}
 ];
 
 @NgModule({
