@@ -10,15 +10,10 @@ router.post('/', async (req, res, next) => {
     try {
         //throw new Error('something bad happened');
         var existe = await functions.existeProducto(req.body.sku);
-
-        //var id = req.params.id;
         var usuario = "noLogin";
         var idUsuario = "noLogin";
-        //var orden = {};
-        //console.log("idUsuarioi --> " + req.headers.idusuario);
         if (req.headers.usuario) usuario = req.headers.usuario;
-        if (req.headers.idusuario) idUsuario = req.headers.idusuario;
-
+        
         var obj = {
             sku: req.body.sku,
             nombre:req.body.nombre,
@@ -38,7 +33,7 @@ router.post('/', async (req, res, next) => {
             obj.urlImagen = imageS3.Key;
             productos.create(req.body).then();
 
-            logs.logCrearProducto("Crear Producto", usuario,idUsuario,"Admin","servicio Crear Producto", obj);
+            //logs.logCrearProducto("Crear Producto", usuario,idUsuario,"Admin","servicio Crear Producto", obj);
 
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
@@ -46,7 +41,7 @@ router.post('/', async (req, res, next) => {
         }
         else {
 
-           logs.logErrores("Error:: El producto ya existe", usuario,idUsuario,"Usuario","servicio Crear Producto", obj);
+           //logs.logErrores("Error:: El producto ya existe", usuario,idUsuario,"Usuario","servicio Crear Producto", obj);
 
             res.statusCode = 409;
             res.setHeader('Content-Type', 'application/json');

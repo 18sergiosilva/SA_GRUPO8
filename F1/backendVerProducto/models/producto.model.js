@@ -19,11 +19,11 @@ var productoSchema = new mongoose.Schema({
     },
     imagen: {
         type: String,
-        required: true
+        required: false
     },
     urlImagen: {
         type: String,
-        required: true
+        required: false
     }
 }, {
     timestamps: true
