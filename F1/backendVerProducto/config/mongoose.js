@@ -8,7 +8,7 @@ const database = 'ayd2db'
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('useNewUrlParser', true);
 
-mongoose.connect(`mongodb://${username}:${password}@${host}/${database}`);
+mongoose.connect(`mongodb+srv://administrator:1234@cluster0.bmddi.mongodb.net/SAProjectG8?retryWrites=true&w=majority`);
 
 
 /*

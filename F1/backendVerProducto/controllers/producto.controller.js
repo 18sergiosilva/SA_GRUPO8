@@ -77,17 +77,16 @@ module.exports = {
     getbyEditorial: (req, res) => {
         const Editorial = req.params.editorial;
 
-        
+        const data = {Editorial:Editorial}
         var usuario = "noLogin";
         var idUsuario = "noLogin";
         var obj = {};
         //var orden = {};
         //console.log("idUsuarioi --> " + req.headers.idusuario);
         if (req.headers.usuario) usuario = req.headers.usuario;
-        if (req.headers.idusuario) idUsuario = req.headers.idusuario;
 
         
-        modelProducto.findByEditorial(Editorial).then(producto => {
+        modelProducto.find(data).then(producto => {
             if(producto){
                 obj = producto;
                 logs.logOperacionOrden("Consultar producto", obj._id,usuario,idUsuario,"Usuario","servicio ver Producto", obj);
@@ -109,19 +108,17 @@ module.exports = {
 
 
     getbyGenero: (req, res) => {
-        const Genero = req.params.genero;
+        const Generos = req.params.genero;
 
-        
+        const data = {Genero:Generos}
         var usuario = "noLogin";
         var idUsuario = "noLogin";
         var obj = {};
         //var orden = {};
         //console.log("idUsuarioi --> " + req.headers.idusuario);
         if (req.headers.usuario) usuario = req.headers.usuario;
-        if (req.headers.idusuario) idUsuario = req.headers.idusuario;
-
         
-        modelProducto.findByGenero(Genero).then(producto => {
+        modelProducto.find(data).then(producto => {
             if(producto){
                 obj = producto;
                 logs.logOperacionOrden("Consultar producto", obj._id,usuario,idUsuario,"Usuario","servicio ver Producto", obj);
