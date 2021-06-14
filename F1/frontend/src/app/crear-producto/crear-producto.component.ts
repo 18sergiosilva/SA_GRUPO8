@@ -16,6 +16,8 @@ export class CrearProductoComponent implements OnInit {
   nombre:string;
   precio:number;
   descripcion:string;
+  editorial:string;
+  genero:string;
   cardImageBase64:string;
 
   ngOnInit() {
@@ -37,7 +39,9 @@ export class CrearProductoComponent implements OnInit {
         "sku": this.sku,
         "nombre": this.nombre,
         "precio":this.precio,
-        "descripcion":this.descripcion
+        "descripcion":this.descripcion,
+        "Editorial":this.editorial,
+        "Genero":this.genero
       }, options).toPromise().then((data: any) => {
         this.toastr.success('¡ALERTA!', data.mensaje);
         console.log(data);

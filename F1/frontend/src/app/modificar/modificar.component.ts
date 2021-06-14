@@ -17,6 +17,8 @@ export class ModificarComponent implements OnInit {
   url = "assets/default.png";
   productos = [];
   nombre:string;
+  editorial:string;
+  genero:string;
   precio:number;
   descripcion:string;
   cardImageBase64:string;
@@ -71,7 +73,9 @@ export class ModificarComponent implements OnInit {
         "sku": this.sku,
         "nombre": this.nombre,
         "precio":this.precio,
-        "descripcion":this.descripcion
+        "descripcion":this.descripcion,
+        "Editorial":this.editorial,
+        "Genero":this.genero
       },options).toPromise().then((data: any) => {
         this.toastr.success('¡ALERTA!', data.mensaje);
         console.log(data);
