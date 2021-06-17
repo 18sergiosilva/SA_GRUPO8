@@ -17,8 +17,10 @@ export class LoginComponent implements OnInit {
   correo: string;
   contra: string;
   incorrecto = false;
+  tipoUser = 0;
+  titulo = "Creacion de Usuario";
 
-  endpoint = "https://localhost:3000";
+  endpoint = "https://localhost:3000/";
 
   ngOnInit() {
     if (localStorage.getItem('logged') === '1') {
