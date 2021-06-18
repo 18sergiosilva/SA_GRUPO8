@@ -93,7 +93,7 @@ router.get('/getallnoacepted', async (req,res,next)=>{
   });
 })
 router.post('/updatestatus', async (req, res, next) => {
-  status = 0;
+  status = 1;
   const { username } = req.body;
   usuarios.findOne({username})
   .then(user=>{
