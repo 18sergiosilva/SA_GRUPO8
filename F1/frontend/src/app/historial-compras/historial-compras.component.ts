@@ -14,10 +14,10 @@ export class HistorialComprasComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient, private route: ActivatedRoute,private historialServ: ServicioHistorialService) { }
 
   ngOnInit() {
-    if (localStorage.getItem('logued') !== '1') {
+    /*if (localStorage.getItem('logued') !== '1') {
       localStorage.setItem('logued', '0');
       this.router.navigate(['login']);
-    }
+    }*/
     this.getTransacciones();
   }
   
@@ -26,6 +26,7 @@ export class HistorialComprasComponent implements OnInit {
   //id = String(this.route.snapshot.params['id']);
   compras=[];
   detallesCompra=[];
+  titulo = "Historial de compras";
 
   getTransacciones(): boolean {
     this.historialServ.obtener(this.id)
@@ -47,6 +48,11 @@ export class HistorialComprasComponent implements OnInit {
     let id=this.id;
     //console.log(this.detallesCompra);
     this.router.navigate(['detallescompra',id,no]);
+  }
+
+  imprimirError(error:string):string{
+    console.log(error);
+    return "impreso";
   }
 
 }
