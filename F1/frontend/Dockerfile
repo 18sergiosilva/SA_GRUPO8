@@ -11,7 +11,7 @@
 
 FROM nginx
 WORKDIR /usr/share/nginx/html
-COPY ./var/lib/jenkins/workspace/pipeline/F1/frontend/dist/ .
+COPY ./dist/ .
 WORKDIR /etc/nginx/conf.d
 COPY ./default.conf .
 EXPOSE 80
