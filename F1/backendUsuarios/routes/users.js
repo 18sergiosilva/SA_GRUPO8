@@ -74,7 +74,7 @@ router.post('/login', async (req, res, next) => {
 
 })
 router.get('/getallnoacepted', async (req,res,next)=>{
-  const status = {status:1};
+  const status = {status:0};
   usuarios.find(status)
   .then(users=>{
     if(users){
