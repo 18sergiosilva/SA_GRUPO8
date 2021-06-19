@@ -64,6 +64,16 @@ export class LoginComponent implements OnInit {
           if (localStorage.getItem('username') == 'admin') {
             console.log("admin");
             Utils.indices = [
+              {
+                title: 'Aceptar Editoriales',
+                url: '/vista-admin',
+                icon: 'mdi-account-convert'
+              },
+              {
+                title: 'Gestionar Usuarios',
+                url: '/gestionar-usuario',
+                icon: 'mdi-account-off'
+              }
             ];
             this.router.navigate(['vista-admin']);  //VISTA ADMIN 
           }

@@ -23,6 +23,7 @@ import { EliminarOrdenComponent } from './eliminar-orden/eliminar-orden.componen
 import { OrdenesEstadoComponent } from './ordenes-estado/ordenes-estado.component';
 import { VistaAdminComponent } from './vista-admin/vista-admin.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { GestionarUsuarioComponent } from './gestionar-usuario/gestionar-usuario.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'ordenes-estado', component: OrdenesEstadoComponent},
   { path: 'vista-admin', component: VistaAdminComponent},
   { path: 'perfil', component: PerfilComponent},
+  { path: 'gestionarusuario', component:GestionarUsuarioComponent}
 ];
 
 @NgModule({

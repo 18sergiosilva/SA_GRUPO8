@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { Utils } from '../utils/utils';
 
 @Component({
   selector: 'app-vista-admin',
@@ -22,7 +23,6 @@ export class VistaAdminComponent implements OnInit {
 
   ngOnInit() {
     if(localStorage.getItem('logged') === '0'){
-      console.log("hola");
       this.router.navigate(['login']);
     }
     this.cargarUsers();
