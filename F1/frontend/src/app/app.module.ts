@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -35,6 +37,7 @@ import { OrdenesEstadoComponent } from './ordenes-estado/ordenes-estado.componen
 import { VistaAdminComponent } from './vista-admin/vista-admin.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { GestionarUsuarioComponent } from './gestionar-usuario/gestionar-usuario.component';
+import { VerOrdenesComponent } from './ver-ordenes/ver-ordenes.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +68,8 @@ import { GestionarUsuarioComponent } from './gestionar-usuario/gestionar-usuario
     OrdenesEstadoComponent,
     VistaAdminComponent,
     PerfilComponent,
-    GestionarUsuarioComponent
+    GestionarUsuarioComponent,
+    VerOrdenesComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +80,7 @@ import { GestionarUsuarioComponent } from './gestionar-usuario/gestionar-usuario
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [
   ],
