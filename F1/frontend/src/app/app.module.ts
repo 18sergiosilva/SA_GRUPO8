@@ -35,6 +35,9 @@ import { OrdenesEstadoComponent } from './ordenes-estado/ordenes-estado.componen
 import { VistaAdminComponent } from './vista-admin/vista-admin.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { GestionarUsuarioComponent } from './gestionar-usuario/gestionar-usuario.component';
+import { LibrosComponent } from './libros/libros.component';
+import { EditarLibroComponent } from './editar-libro/editar-libro.component';
+import { GenerosComponent } from './generos/generos.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +68,10 @@ import { GestionarUsuarioComponent } from './gestionar-usuario/gestionar-usuario
     OrdenesEstadoComponent,
     VistaAdminComponent,
     PerfilComponent,
-    GestionarUsuarioComponent
+    GestionarUsuarioComponent,
+    LibrosComponent,
+    EditarLibroComponent,
+    GenerosComponent
   ],
   imports: [
     BrowserModule,

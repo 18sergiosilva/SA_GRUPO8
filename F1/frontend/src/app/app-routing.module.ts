@@ -24,6 +24,9 @@ import { OrdenesEstadoComponent } from './ordenes-estado/ordenes-estado.componen
 import { VistaAdminComponent } from './vista-admin/vista-admin.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { GestionarUsuarioComponent } from './gestionar-usuario/gestionar-usuario.component';
+import { LibrosComponent } from './libros/libros.component';
+import { EditarLibroComponent } from './editar-libro/editar-libro.component';
+import { GenerosComponent } from './generos/generos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -49,7 +52,10 @@ const routes: Routes = [
   { path: 'ordenes-estado', component: OrdenesEstadoComponent},
   { path: 'vista-admin', component: VistaAdminComponent},
   { path: 'perfil', component: PerfilComponent},
-  { path: 'gestionarusuario', component:GestionarUsuarioComponent}
+  { path: 'gestionarusuario', component:GestionarUsuarioComponent},
+  { path: 'libros', component:LibrosComponent},
+  { path: 'editarlibro/:id', component:EditarLibroComponent},
+  { path: 'generos', component: GenerosComponent}
 ];
 
 @NgModule({
