@@ -14,9 +14,6 @@ module.exports = {
         var usuario = "noLogin";
         var idUsuario = "noLogin";
 
-        if (req.headers.usuario) usuario = req.headers.usuario;
-        if (req.headers.idusuario) idUsuario = req.headers.idusuario;
-
         var productoActual = {
             id:"",
             sku:"",
@@ -77,14 +74,12 @@ module.exports = {
                 productoActual = producto;
                 //console.log("variable -->" +productoActual);
                 modelProducto.findByIdAndUpdate(idProducto, update).then(producto => {
-                        
-                    logs.logActualizarProducto("Actualizar producto", usuario,idUsuario,"Admin","servicio actualizar producto", productoActualizado, productoActual);
-                    
+
                     return res.send({
                         mensaje: "Producto actualizado exitosamente"
                     });
                 })
-                
+
             } else {
                 logs.logErrores("Error:: No existe producto con id " + idProducto, usuario,idUsuario,"Admin","servicio actualizar Producto",productoActualizado);
                 return res.status(404).send({
