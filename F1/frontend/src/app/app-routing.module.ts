@@ -27,6 +27,7 @@ import { GestionarUsuarioComponent } from './gestionar-usuario/gestionar-usuario
 import { LibrosComponent } from './libros/libros.component';
 import { EditarLibroComponent } from './editar-libro/editar-libro.component';
 import { GenerosComponent } from './generos/generos.component';
+import { VerOrdenesComponent } from './ver-ordenes/ver-ordenes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -55,7 +56,8 @@ const routes: Routes = [
   { path: 'gestionarusuario', component:GestionarUsuarioComponent},
   { path: 'libros', component:LibrosComponent},
   { path: 'editarlibro/:id', component:EditarLibroComponent},
-  { path: 'generos', component: GenerosComponent}
+  { path: 'generos', component: GenerosComponent},
+  { path: 'verordenes', component:VerOrdenesComponent}
 ];
 
 @NgModule({

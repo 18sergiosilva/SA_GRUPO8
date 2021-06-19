@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -38,6 +40,7 @@ import { GestionarUsuarioComponent } from './gestionar-usuario/gestionar-usuario
 import { LibrosComponent } from './libros/libros.component';
 import { EditarLibroComponent } from './editar-libro/editar-libro.component';
 import { GenerosComponent } from './generos/generos.component';
+import { VerOrdenesComponent } from './ver-ordenes/ver-ordenes.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,8 @@ import { GenerosComponent } from './generos/generos.component';
     GestionarUsuarioComponent,
     LibrosComponent,
     EditarLibroComponent,
-    GenerosComponent
+    GenerosComponent,
+    VerOrdenesComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +86,7 @@ import { GenerosComponent } from './generos/generos.component';
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [
   ],
