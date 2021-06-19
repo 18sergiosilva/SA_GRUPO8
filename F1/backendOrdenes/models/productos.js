@@ -32,6 +32,10 @@ var productoSchema = new mongoose.Schema({
     Genero: {
         type: Array,
         required:true
+    },
+    Stock:{
+        type: Number,
+        required: true 
     }
 }, {
     timestamps: true

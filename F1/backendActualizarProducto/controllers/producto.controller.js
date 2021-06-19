@@ -26,7 +26,8 @@ module.exports = {
             imagen:"",
             urlImagen:"",
             Editorial:"",
-            Genero:""
+            Genero:"",
+            Stock:""
         };
 
         var productoActualizado = {
@@ -38,7 +39,8 @@ module.exports = {
             imagen:"",
             urlImagen:"",
             Editorial:"",
-            Genero:""
+            Genero:"",
+            Stock:""
         };
 
         productoActualizado.id = idProducto;
@@ -60,6 +62,10 @@ module.exports = {
         if (Genero){
             update.Genero = Genero;
             productoActualizado.Genero = Genero;
+        }
+        if (Stock){
+            update.Stock = Stock;
+            productoActualizado.Stock = Stock;
         } 
 
 
