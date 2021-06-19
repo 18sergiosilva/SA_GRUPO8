@@ -5,7 +5,7 @@ var logs = require('../utils/log');
 module.exports = {
     actualizar: (req, res) => {
         const idProducto = req.params.id;
-        const { nombre, precio, descripcion, imagen, Editorial, Genero, Stock} = req.body;
+        const { nombre, precio, descripcion, Editorial, Genero, Stock} = req.body;
         var update = {};
 
         //console.log("id --> "+ idProducto);
@@ -74,11 +74,12 @@ module.exports = {
                 productoActual = producto;
                 //console.log("variable -->" +productoActual);
                 modelProducto.findByIdAndUpdate(idProducto, update).then(producto => {
-                    logs.logActualizarProducto("Actualizar producto", usuario,idUsuario,"Admin","servicio actualizar producto", productoActualizado, productoActual);
+
                     return res.send({
                         mensaje: "Producto actualizado exitosamente"
                     });
                 })
+
             } else {
                 logs.logErrores("Error:: No existe producto con id " + idProducto, usuario,idUsuario,"Admin","servicio actualizar Producto",productoActualizado);
                 return res.status(404).send({
