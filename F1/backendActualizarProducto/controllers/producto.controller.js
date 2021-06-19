@@ -5,7 +5,7 @@ var logs = require('../utils/log');
 module.exports = {
     actualizar: (req, res) => {
         const idProducto = req.params.id;
-        const { nombre, precio, descripcion, imagen } = req.body;
+        const { nombre, precio, descripcion, imagen, Editorial, Genero, Stock} = req.body;
         var update = {};
 
         //console.log("id --> "+ idProducto);
