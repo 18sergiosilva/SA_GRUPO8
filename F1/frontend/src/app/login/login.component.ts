@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
               },
               {
                 title: 'Gestionar Usuarios',
-                url: '/gestionar-usuario',
+                url: '/gestionarusuario',
                 icon: 'mdi-account-off'
               }
             ];
