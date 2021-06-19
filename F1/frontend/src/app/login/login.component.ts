@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { map } from 'rxjs/operators';
 import { Utils } from '../utils/utils';
 import * as crypto from 'crypto-js';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -18,14 +19,14 @@ export class LoginComponent implements OnInit {
   contra: string;
   incorrecto = false;
   tipoUser = 0;
-  titulo = "Creacion de Usuario";
+  titulo = "Ingreso de Usuario";
 
-  endpoint = "https://localhost:3000/";
+  endpoint = "http://18.118.255.26:3005";
 
   ngOnInit() {
     if (localStorage.getItem('logged') === '1') {
-      localStorage.setItem('logged', '0');
-      this.router.navigate(['login']);
+      //localStorage.setItem('logged', '0');
+      this.router.navigate(['home']);   
     }
     Utils.indices = [
       {
@@ -47,116 +48,62 @@ export class LoginComponent implements OnInit {
         title: 'Carrito de Compra',
         url: '/carrito',
         icon: 'mdi-shopping'
-      }
+      },
+      
     ];
   }
 
-  entrarAux(){
-    console.log(this.correo);
-    console.log(this.contra);
-    localStorage.setItem('user', 'admin');
-    localStorage.setItem('logged', '1');
-    localStorage.setItem('userid','1');
-    localStorage.setItem('tipoUsuario','0');
-    if(localStorage.getItem('tipoUsuario') ==='0'){
-      this.router.navigate(['vista-admin']);
-    }
-
-  }
-
   entrar() {
-    this.http.post(this.endpoint+'/users/login',
+    this.http.post(this.endpoint + '/users/login',
       {
         'username': this.correo,
         'contraseña': this.contra
       }).subscribe((data: any) => {
+
         localStorage.setItem('user', data.username);
         localStorage.setItem('logged', '1');
-        localStorage.setItem('userid',data._id);
-        localStorage.setItem('tipoUsuario',data.tipoUsuario);
+        localStorage.setItem('userid', data._id);
+        localStorage.setItem('tipoUsuario', data.tipoUsuario);
+        localStorage.setItem('username', data.username);
 
-        //MENUS
-        Utils.indices = [
-          {
-            title: 'Catalogo Productos',
-            url: '/catalogo',
-            icon: 'mdi-food'
-          },
-          {
-            title: 'Carrito de Compra',
-            url: '/carrito',
-            icon: 'mdi-shopping'
-          },
-          {
-            title: 'Consultar Orden',
-            url: '/consultar',
-            icon: 'mdi-clipboard-check'
-          }
-        ];
-        //USUARIO ADMIN
-        if(localStorage.getItem('tipoUsuario') ==='0'){
-          this.router.navigate(['admin']);
-        }
         //USUARIO CLIENTE
-        else if (localStorage.getItem('tipoUsuario') === '1') {
-          Utils.indices.push(
-            {
-              title: 'Agregar Producto',
-              url: '/crear',
-              icon: 'mdi-pencil'
-            },
-            {
-              title: 'Modificar Producto',
-              url: '/modificar',
-              icon: 'mdi-folder-upload'
-            },
-            {
-              title: 'Eliminar Producto',
-              url: '/eliminar',
-              icon: 'mdi-delete'
-            },
-            {
-              title: 'Estado de Ordenes',
-              url: '/ordenes-estado',
-              icon: 'mdi-clipboard-text-outline'
-            },
-            {
-              title: 'Eliminar Orden',
-              url: '/eliminarorden',
-              icon: 'mdi-folder-remove'
-            }
-          );
+        if (localStorage.getItem('tipoUsuario') == '1') {
+          //si es administrador
+          if (localStorage.getItem('username') == 'admin') {
+            console.log("admin");
+            this.router.navigate(['vista-admin']);  //VISTA ADMIN 
+          }
+          else{
+            console.log("cliente");
+            this.router.navigate(['home']);  //VISTA USUARIO 
+          }
         }
         //USUARIO EDITORIAL
-        else if (localStorage.getItem('tipoUsuario') === '2') {
-          Utils.indices.push(
-            {
-              title: 'Agregar Producto',
-              url: '/crear',
-              icon: 'mdi-pencil'
-            },
-            {
-              title: 'Modificar Producto',
-              url: '/modificar',
-              icon: 'mdi-folder-upload'
-            },
-            {
-              title: 'Eliminar Producto',
-              url: '/eliminar',
-              icon: 'mdi-delete'
-            },
-            {
-              title: 'Estado de Ordenes',
-              url: '/ordenes-estado',
-              icon: 'mdi-clipboard-text-outline'
-            },
-            {
-              title: 'Eliminar Orden',
-              url: '/eliminarorden',
-              icon: 'mdi-folder-remove'
-            }
-          );
+        else if (localStorage.getItem('tipoUsuario') == '2') {
+          console.log("cliente");
+          this.router.navigate(['home']);  //VISTA EDITORIAL
         }
+      },
+        (error: HttpErrorResponse) => {
+          console.log(error.error.codigoEstado);
+          if (error.error.codigoEstado==401) {
+            Swal.fire({
+              text: "Usuario no aceptado",
+              icon: 'warning',
+              confirmButtonText: 'Aceptar',
+            });
+          }
+          else if (error.error.codigoEstado==404) {
+            Swal.fire({
+              text: "Usuario o Contraseña incorrecta ",
+              icon: 'error',
+              confirmButtonText: 'Aceptar',
+            });
+          }
+          this.cancelar();
+          this.incorrecto = true;
+        });
+        
         Utils.indices.push(
           {
             title: 'Cerrar Sesión',
@@ -164,19 +111,14 @@ export class LoginComponent implements OnInit {
             icon: 'mdi-exit-to-app'
           }
         );
-        this.router.navigate(['home']);
-        //localStorage.setItem("producto","");
-      },
-        (error: HttpErrorResponse) => {
-          this.cancelar();
-          this.incorrecto = true;
-        });
   }
+
 
   cancelar() {
     this.correo = '';
     this.contra = '';
     this.incorrecto = false;
+    this.router.navigate(['login']);
   }
 
 }

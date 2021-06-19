@@ -30,6 +30,9 @@ export class RegistrarseComponent implements OnInit {
 
 
   agregar() {
+    if(this.tipoUsuario=="1"){
+      this.status=1;
+    }
     if (this.camposLLenos() == true) {
         const cliente = {
           "username": this.username,
@@ -38,7 +41,7 @@ export class RegistrarseComponent implements OnInit {
           "correo": this.correo,
           "telefono": this.telefono,
           "direccion": this.direccion,
-          "contrasena": this.contrasena,
+          "contraseña": this.contrasena,
           "status":this.status,
           "tipoUsuario":this.tipoUsuario
         }
