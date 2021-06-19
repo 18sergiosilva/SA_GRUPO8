@@ -6,7 +6,7 @@ export class Utils {
         {
             title: 'Ingresar',
             url: '/login',
-            icon: 'mdi-settings-box'
+            icon: 'mdi-login'
         },
         {
             title: 'Registrarse',

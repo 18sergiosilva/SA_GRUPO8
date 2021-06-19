@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
       localStorage.removeItem('userid');
       localStorage.removeItem('tipoUsuario');
       localStorage.removeItem('username');
+      localStorage.removeItem('nombre');
       this.router.navigate(['login']);
     }
     Utils.indices = [];
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
       {
         title: 'Ingresar',
         url: '/login',
-        icon: 'mdi-settings-box'
+        icon: 'mdi-login'
       },
       {
         title: 'Registrarse',
@@ -57,6 +58,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('tipoUsuario', data.tipoUsuario);
         localStorage.setItem('username', data.username);
         localStorage.setItem('pass', data.contraseña);
+        localStorage.setItem('nombre', data.nombres);
 
         //USUARIO CLIENTE
         if (localStorage.getItem('tipoUsuario') == '1') {
@@ -84,7 +86,7 @@ export class LoginComponent implements OnInit {
               {
                 title: 'Ingresar',
                 url: '/login',
-                icon: 'mdi-settings-box'
+                icon: 'mdi-login'
               },
               {
                 title: 'Registrarse',
@@ -105,9 +107,14 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['home']);  //VISTA EDITORIAL
           Utils.indices = [
             {
-              title: 'mislibros',
-              url: '/crear',
-              icon: 'mdi-settings-box'
+              title: 'Mis Libros',
+              url: '/libros',
+              icon: 'mdi-book-open-page-variant'
+            },
+            {
+              title: 'Generos',
+              url: '/generos',
+              icon: 'mdi-book'
             }
           ];
         }

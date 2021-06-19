@@ -1,0 +1,69 @@
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" id="titulo">Generos</h4>
+            <form class="form-sample">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Genero</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" [(ngModel)]="nuevo_genero"
+                                    name="nuevo_genero" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img [src]="url" class="img-fluid" alt="Responsive image">
+                    </div>
+                </div>
+                <button type="submit" name="agregar" (click)="agregar()" class="btn btn-success mr-2">Agregar</button>
+                <button class="btn btn-light" (click)="cancelar()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Tabla de Productos-->
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Generos</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> </th>
+                            <th> Genero </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            <th> </th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Repitencia-->
+                        <tr *ngFor="let producto of productos">
+                            <td>
+                                <img class="mr-2" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Closed_Book_Icon.svg/1200px-Closed_Book_Icon.svg.png" alt="image" />
+                            </td>
+                            <td>
+                                <!--{{producto.categorias}}-->
+                                {{producto.genero}}
+                            </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
