@@ -14,9 +14,6 @@ module.exports = {
         var usuario = "noLogin";
         var idUsuario = "noLogin";
 
-        if (req.headers.usuario) usuario = req.headers.usuario;
-        if (req.headers.idusuario) idUsuario = req.headers.idusuario;
-
         var productoActual = {
             id:"",
             sku:"",
@@ -76,49 +73,12 @@ module.exports = {
                 //console.log(producto);
                 productoActual = producto;
                 //console.log("variable -->" +productoActual);
-
-                if (imagen) {
-                    console.log("modificando imagen --->");
-                    borrarImagen(producto.urlImagen).then(data => {
-                        subirImagen(imagen, producto.sku).then(imagen => {
-                            //console.log(imagen);
-                            update.imagen = imagen.Location;
-                            update.urlImagen = imagen.Key;
-                            
-                            productoActualizado.imagen = imagen.Location;
-                            productoActualizado.urlImagen = imagen.Key;
-
-                            modelProducto.findByIdAndUpdate(idProducto, update).then(producto => {
-                                logs.logActualizarProducto("Actualizar producto", usuario,idUsuario,"Admin","servicio actualizar producto", productoActualizado, productoActual);
-                                return res.send({
-                                    mensaje: "Producto actualizado exitosamente"
-                                });
-                            })
-                        }).catch(err => {
-                            logs.logErrores("Error:: Ocurrio un error al subir la nueva imagen", usuario,idUsuario,"Sistema","servicio actualizar Producto",productoActualizado);
-                            console.log(err);
-                            return res.status(500).send({
-                                mensaje: "Ocurrio un error al subir la nueva imagen"
-                            })
-                        })
-                    })
-                        .catch(err => {
-                            logs.logErrores("Error:: Ocurrio un error al eliminar la imagen anterior", usuario,idUsuario,"Sistema","servicio actualizar Producto",productoActualizado);
-                            console.log(err);
-                            return res.status(500).send({
-                                mensaje: "Ocurrio un error al eliminar la imagen anterior"
-                            })
-                        });
-                } else {
-                    modelProducto.findByIdAndUpdate(idProducto, update).then(producto => {
-                        
-                        logs.logActualizarProducto("Actualizar producto", usuario,idUsuario,"Admin","servicio actualizar producto", productoActualizado, productoActual);
-                        
-                        return res.send({
-                            mensaje: "Producto actualizado exitosamente"
-                        });
-                    })
-                }
+                modelProducto.findByIdAndUpdate(idProducto, update).then(producto => {
+                    logs.logActualizarProducto("Actualizar producto", usuario,idUsuario,"Admin","servicio actualizar producto", productoActualizado, productoActual);
+                    return res.send({
+                        mensaje: "Producto actualizado exitosamente"
+                    });
+                })
             } else {
                 logs.logErrores("Error:: No existe producto con id " + idProducto, usuario,idUsuario,"Admin","servicio actualizar Producto",productoActualizado);
                 return res.status(404).send({
