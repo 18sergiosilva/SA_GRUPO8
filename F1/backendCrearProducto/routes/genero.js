@@ -4,30 +4,15 @@ var functions = require('./functions');
 var logs = require('../utils/log');
 
 const generos = require('../models/generos');
-//const log = require('../models/log');
-
-router.post('/generos/', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try {
-        //throw new Error('something bad happened');
-        
-        var usuario = "noLogin";
-        var idUsuario = "noLogin";
-        if (req.headers.usuario) usuario = req.headers.usuario;
-        
-        var obj = {
-            id: req.body.id,
-            genero:req.body.genero,
-            };
-
-
-           
-        generos.create(req.body).then();
-    
-                
-    
-              
+        console.log(req.body);
+        generos.create(req.body).then((value) => {
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.json({ codigoEstado: 200, mensaje: "El genero se creo con exito" });
+          });              
         }
-
     
     catch (err) {
         //console.log("Error Crear Producto  catch general->" + err)
@@ -38,6 +23,11 @@ router.post('/generos/', async (req, res, next) => {
         res.json({ codigoEstado: 404, mensaje: "Error Inesperado", objetoError: err });
         next(err);
     }
+});
+router.get('/getAllGenders',async (req,res,next)=>{
+    generos.find({}).then((data)=>{
+        res.json({codigoEstado:200, data:data});
+    });
 });
 
 module.exports = router;

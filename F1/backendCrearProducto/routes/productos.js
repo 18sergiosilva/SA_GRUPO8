@@ -28,14 +28,12 @@ router.post('/', async (req, res, next) => {
         };
 
         if (existe == false) {
-            var imageS3 = await functions.uploadS3File(req.body.imagen, req.body.sku);
-            req.body.imagen = imageS3.Location;
-            req.body.urlImagen = imageS3.Key;
+            //var imageS3 = await functions.uploadS3File(req.body.imagen, req.body.sku);
+            //req.body.imagen = imageS3.Location;
+            //req.body.urlImagen = imageS3.Key;
 
-            obj.urlImagen = imageS3.Key;
+            //obj.urlImagen = imageS3.Key;
             productos.create(req.body).then();
-
-            //logs.logCrearProducto("Crear Producto", usuario,idUsuario,"Admin","servicio Crear Producto", obj);
 
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');

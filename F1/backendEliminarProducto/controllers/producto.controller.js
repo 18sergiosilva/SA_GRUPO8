@@ -21,20 +21,10 @@ module.exports = {
 
         modelProducto.findByIdAndRemove(idProducto).then(producto => {
             if (producto) {
-                borrarImagen(producto.urlImagen).then(data => {
-                    logs.logEliminarProducto("Eliminar Producto", usuario,idUsuario,"Admin","servicio eliminar producto", obj);
-                    return res.send({
-                        mensaje: "Producto eliminado exitosamente"
-                    })
-                }).catch(err => {
-                    console.log(err);
-                    logs.logErrores("Error:: Ocurrio un error al eliminar la imagen msg:: " + err, usuario,idUsuario,"Sistema","servicio eliminar producto", obj);
-                    return res.status(500).send({
-                        mensaje: "Ocurrio un error al eliminar la imagen"
-                    })
-                })
-
-                
+                return res.status(200).send({
+                    mensaje: "Eliminado correctamente",
+                    codigoEstado:200
+                })   
             } else {
                 logs.logErrores("Error-Eliminar:: No existe producto con id " + idProducto, usuario,idUsuario,"Usuario","servicio eliminar producto", obj);
                 return res.status(404).send({

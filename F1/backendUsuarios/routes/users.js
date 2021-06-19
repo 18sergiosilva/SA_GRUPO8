@@ -111,6 +111,20 @@ router.get('/getAll', async (req,res,next)=>{
     }
   });
 })
+router.get('/editoriales', async(req,res,next)=>{
+  const usertype = {tipoUsuario:2};
+  usuarios.find(usertype)
+  .then(users=>{
+    let usersname=[]
+    users.forEach(element => {
+      usersname.push(element.nombres)
+    });
+    res.status(200).send({
+      codigoEstado:200,
+      data:usersname
+    })
+  })
+});
 router.post('/deleteUser', async (req, res, next) => {
   status = 0;
   const { username } = req.body;
