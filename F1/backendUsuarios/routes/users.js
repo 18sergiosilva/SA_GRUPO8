@@ -92,6 +92,58 @@ router.get('/getallnoacepted', async (req,res,next)=>{
     }
   });
 })
+router.get('/getAll', async (req,res,next)=>{
+  const status = {status:1};
+  usuarios.find(status)
+  .then(users=>{
+    if(users){
+      res.status(200).send({
+        codigoEstado: 200,
+        mensaje: "Success",
+        data: users
+      });
+    }else{
+      res.status(200).send({
+        codigoEstado: 200,
+        mensaje: "No existe usuario con ese status ",
+        data: []
+      });
+    }
+  });
+})
+router.post('/deleteUser', async (req, res, next) => {
+  status = 0;
+  const { username } = req.body;
+  usuarios.findOne({username})
+  .then(user=>{
+    if(user){
+      user.status = status;
+      newdatausr = user;
+      usuarios.updateOne({username}, newdatausr,async(err,res)=>{
+        if(err){
+          return({
+            codigoEstado: 400,
+            mensaje: "Existio algun error con el usuario "+username
+          });
+        }else{
+          return({
+            codigoEstado: 200,
+            mensaje: "Usuario eliminado con exito"
+          });
+        }
+      })
+      res.status(200).send({
+        codigoEstado: 200,
+        mensaje: "Usuario eliminado con exito"
+      });
+    }else{
+      res.status(404).send({
+        codigoEstado: 404,
+        mensaje: "No existe usuario con username " + username
+      });
+    }
+  })
+})
 router.post('/updatestatus', async (req, res, next) => {
   status = 1;
   const { username } = req.body;
