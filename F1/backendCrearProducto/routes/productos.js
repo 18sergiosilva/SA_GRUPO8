@@ -22,7 +22,9 @@ router.post('/', async (req, res, next) => {
             imagen: req.body.imagen,
             urlImagen: "",
             Edtitorial: req.body.Edtitorial,
-            Genero: req.body.Genero
+            Genero: req.body.Genero,
+            Stock: req.body.Stock // stock
+
         };
 
         if (existe == false) {
