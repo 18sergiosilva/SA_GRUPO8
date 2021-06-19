@@ -37,7 +37,8 @@ var ordenSchema = new mongoose.Schema({
     estado: {
         type: Number,
         required: true
-    },
+    }
+    ,
     tipoPago: {
         type: Number,
         required: false,

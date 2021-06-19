@@ -15,9 +15,6 @@ router.post('/sinRegistro', async (req, res, next) => {
         var idUsuario = "noLogin";
         //var orden = {};
         //console.log("idUsuarioi --> " + req.headers.idusuario);
-        if (req.headers.usuario) usuario = req.headers.usuario;
-        if (req.headers.idusuario) idUsuario = req.headers.idusuario;
-
         req.body.tipoPago = 0;
         req.body.estado = 0;
         ordenes.create(req.body).then((value) => {

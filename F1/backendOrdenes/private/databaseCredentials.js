@@ -8,7 +8,7 @@ var dbInfo = {
   dbPassword: '1ps9sayd2lb'
 }
 
-module.exports = `mongodb://${dbInfo.dbUser}:${dbInfo.dbPassword}@${dbInfo.ipDb}/${dbInfo.dbName}`;
+module.exports = `mongodb+srv://administrator:1234@cluster0.bmddi.mongodb.net/SAProjectG8?retryWrites=true&w=majority`;
 
 
 /*
