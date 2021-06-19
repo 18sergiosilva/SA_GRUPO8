@@ -21,6 +21,10 @@ export class VistaAdminComponent implements OnInit {
 
 
   ngOnInit() {
+    if(localStorage.getItem('logged') === '0'){
+      console.log("hola");
+      this.router.navigate(['login']);
+    }
     this.cargarUsers();
   }
 
@@ -44,7 +48,7 @@ export class VistaAdminComponent implements OnInit {
         icon: 'success',
         confirmButtonText: 'Aceptar',
       })
-      this.router.navigate(['vista-admin']); 
+      this.cargarUsers(); 
       return true;
     });
     return false;

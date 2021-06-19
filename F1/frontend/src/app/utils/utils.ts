@@ -12,16 +12,6 @@ export class Utils {
             title: 'Registrarse',
             url: '/registrarse',
             icon: 'mdi-account-multiple-plus'
-        },
-        {
-            title: 'Catalogo Productos',
-            url: '/catalogo',
-            icon: 'mdi-food'
-        },
-        {
-            title: 'Carrito de Compra',
-            url: '/carrito',
-            icon: 'mdi-cart-outline'
         }
     ];
 }

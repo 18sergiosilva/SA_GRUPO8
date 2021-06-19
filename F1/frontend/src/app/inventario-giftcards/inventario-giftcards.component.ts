@@ -22,9 +22,9 @@ export class InventarioGiftcardsComponent implements OnInit {
   usuarioBeneficio = "";
 
   ngOnInit() {
-    if (localStorage.getItem('logued') !== '1') {
-      localStorage.setItem('logued', '0');
-      this.router.navigate(['login']);
+    if (localStorage.getItem('logged') !== '1') {
+      localStorage.setItem('logged', '0');
+      //this.router.navigate(['login']);
     }
     this.getGiftcards();
     

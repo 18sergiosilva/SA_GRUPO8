@@ -22,11 +22,12 @@ import { CrearOrdenComponent } from './crear-orden/crear-orden.component';
 import { EliminarOrdenComponent } from './eliminar-orden/eliminar-orden.component';
 import { OrdenesEstadoComponent } from './ordenes-estado/ordenes-estado.component';
 import { VistaAdminComponent } from './vista-admin/vista-admin.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'modificar', component: ModificarComponent },
+  { path: 'home', component: HomeComponent },    
+  { path: 'modificar', component: ModificarComponent },   
   { path: 'giftcards', component: VistaGiftcardsComponent },
   { path: 'home', component: HomeComponent },
   { path: 'registrarse', component: RegistrarseComponent },
@@ -45,7 +46,8 @@ const routes: Routes = [
   { path: 'crear-orden',component: CrearOrdenComponent},
   { path: 'eliminarorden', component: EliminarOrdenComponent},
   { path: 'ordenes-estado', component: OrdenesEstadoComponent},
-  { path: 'vista-admin', component: VistaAdminComponent}
+  { path: 'vista-admin', component: VistaAdminComponent},
+  { path: 'perfil', component: PerfilComponent},
 ];
 
 @NgModule({

@@ -25,9 +25,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('logged') === '1') {
-      //localStorage.setItem('logged', '0');
-      this.router.navigate(['home']);   
+      localStorage.setItem('logged', '0');
+      localStorage.removeItem('userid');
+      localStorage.removeItem('tipoUsuario');
+      localStorage.removeItem('username');
+      this.router.navigate(['login']);
     }
+    Utils.indices = [];
     Utils.indices = [
       {
         title: 'Ingresar',
@@ -38,18 +42,7 @@ export class LoginComponent implements OnInit {
         title: 'Registrarse',
         url: '/registrarse',
         icon: 'mdi-account-multiple-plus'
-      },
-      {
-        title: 'Catalogo Productos',
-        url: '/catalogo',
-        icon: 'mdi-food'
-      },
-      {
-        title: 'Carrito de Compra',
-        url: '/carrito',
-        icon: 'mdi-shopping'
-      },
-      
+      }
     ];
   }
 
@@ -59,41 +52,73 @@ export class LoginComponent implements OnInit {
         'username': this.correo,
         'contraseña': this.contra
       }).subscribe((data: any) => {
-
-        localStorage.setItem('user', data.username);
         localStorage.setItem('logged', '1');
         localStorage.setItem('userid', data._id);
         localStorage.setItem('tipoUsuario', data.tipoUsuario);
         localStorage.setItem('username', data.username);
+        localStorage.setItem('pass', data.contraseña);
 
         //USUARIO CLIENTE
         if (localStorage.getItem('tipoUsuario') == '1') {
           //si es administrador
           if (localStorage.getItem('username') == 'admin') {
             console.log("admin");
+            Utils.indices = [
+            ];
             this.router.navigate(['vista-admin']);  //VISTA ADMIN 
           }
-          else{
+          else {
             console.log("cliente");
             this.router.navigate(['home']);  //VISTA USUARIO 
+            Utils.indices = [
+              {
+                title: 'Ingresar',
+                url: '/login',
+                icon: 'mdi-settings-box'
+              },
+              {
+                title: 'Registrarse',
+                url: '/registrarse',
+                icon: 'mdi-account-multiple-plus'
+              },
+              {
+                title: 'Mis Datos',
+                url: '/perfil',
+                icon: 'mdi-account-circle'
+              }
+            ];
           }
         }
         //USUARIO EDITORIAL
         else if (localStorage.getItem('tipoUsuario') == '2') {
-          console.log("cliente");
+          console.log("editorial");
           this.router.navigate(['home']);  //VISTA EDITORIAL
+          Utils.indices = [
+            {
+              title: 'mislibros',
+              url: '/crear',
+              icon: 'mdi-settings-box'
+            }
+          ];
         }
+        Utils.indices.push(
+          {
+            title: 'Cerrar Sesión',
+            url: '/login',
+            icon: 'mdi-exit-to-app'
+          }
+        );
       },
         (error: HttpErrorResponse) => {
           console.log(error.error.codigoEstado);
-          if (error.error.codigoEstado==401) {
+          if (error.error.codigoEstado == 401) {
             Swal.fire({
               text: "Usuario no aceptado",
               icon: 'warning',
               confirmButtonText: 'Aceptar',
             });
           }
-          else if (error.error.codigoEstado==404) {
+          else if (error.error.codigoEstado == 404) {
             Swal.fire({
               text: "Usuario o Contraseña incorrecta ",
               icon: 'error',
@@ -103,14 +128,6 @@ export class LoginComponent implements OnInit {
           this.cancelar();
           this.incorrecto = true;
         });
-        
-        Utils.indices.push(
-          {
-            title: 'Cerrar Sesión',
-            url: '',
-            icon: 'mdi-exit-to-app'
-          }
-        );
   }
 
 
