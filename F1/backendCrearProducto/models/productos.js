@@ -35,7 +35,7 @@ var productoSchema = new mongoose.Schema({
     },
     Stock:{
         type: Number,
-        required: true
+        required: false
 
     }
 }, {

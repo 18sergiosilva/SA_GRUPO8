@@ -24,6 +24,19 @@ var productoSchema = new mongoose.Schema({
     urlImagen: {
         type: String,
         required: true
+    },
+    Editorial: {
+        type: String,
+        required: true
+    },
+    Genero: {
+        type: Array,
+        required:true
+    },
+    Stock:{
+        type: Number,
+        required: false
+
     }
 }, {
     timestamps: true
