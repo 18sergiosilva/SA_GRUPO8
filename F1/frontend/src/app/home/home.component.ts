@@ -14,10 +14,6 @@ export class HomeComponent implements OnInit {
   cadena: any;
 
   ngOnInit() {
-    if (localStorage.getItem('logued') !== '1') {
-      localStorage.setItem('logued', '0');
-      this.router.navigate(['login']);
-    }
     this.cadena = 'Bienvenido';
 
     

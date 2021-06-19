@@ -17,36 +17,22 @@ export class VistaAdminComponent implements OnInit {
   username = "";
   tabletitle="LISTA DE USUARIOS"
 
-  endpoint = "https://localhost:3000";
-
-  usuario ={
-    username : "edit1",
-    nombres : "Editorial del Valle",
-    correo : "correo1@gmail.com"
-  }
+  endpoint = "http://18.118.255.26:3005";
 
 
   ngOnInit() {
     this.cargarUsers();
-    this.users.push(this.usuario);
   }
 
   cargarUsers(): boolean {
     this.http.get(this.endpoint+'/users/getallnoacepted')
       .toPromise().then((data: any) => {
-        this.users = data;
+        console.log(data.data);
+        this.users = data.data;
       });
     return true;
   }
 
-  cambiarStatus2(u_username: string) {
-      Swal.fire({
-        text: 'Usuario '+u_username+' Actualizado',
-        icon: 'success',
-        confirmButtonText: 'Aceptar',
-      });
-
-  }
 
   cambiarStatus(u_username: string):boolean {
     this.http.post(this.endpoint+'/users/updatestatus',
@@ -58,6 +44,7 @@ export class VistaAdminComponent implements OnInit {
         icon: 'success',
         confirmButtonText: 'Aceptar',
       })
+      this.router.navigate(['vista-admin']); 
       return true;
     });
     return false;

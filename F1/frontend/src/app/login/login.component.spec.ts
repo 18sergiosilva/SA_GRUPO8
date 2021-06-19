@@ -7,6 +7,7 @@ import { Router, Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login.component';
+import Swal from 'sweetalert2';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -39,8 +40,8 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('El  titulo del componente debe ser "Creacion de Usuario"', () => {
-    expect(component.titulo).toBe("Creacion de Usuario");
+  it('El  titulo del componente debe ser "Ingreso de Usuario"', () => {
+    expect(component.titulo).toBe("Ingreso de Usuario");
   });
 
 
