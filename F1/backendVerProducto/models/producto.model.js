@@ -24,7 +24,11 @@ var productoSchema = new mongoose.Schema({
     urlImagen: {
         type: String,
         required: false
-    }
+    },
+    Stock:{
+        type: Number,
+        required: false
+    } 
 }, {
     timestamps: true
 });
