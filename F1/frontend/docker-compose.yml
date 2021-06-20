@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+    frontend:
+      container_name: frontend
+      image: 1803sergiosilva/despliegue1
+      ports:
+        - 80:80

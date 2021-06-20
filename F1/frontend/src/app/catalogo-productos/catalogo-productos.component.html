@@ -1,0 +1,61 @@
+<!-- Formulario de nuevo Ususario-->
+<div class="col-3"></div>
+<div class="col"></div>
+<div class="col-3"></div>
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <form class="form-sample">
+                <div class="row">
+                    <div class="col-md-6 input-group">
+                        <select [(ngModel)]="genero" name="genero" class="form-control">
+                            <option *ngFor="let genero of generos" value="{{genero.genero}}">{{genero.genero}}</option>
+                        </select>
+                        <button class="btn btn-success my-2 my-sm-0" type="button"
+                            (click)="buscarPorGenero()">Buscar</button>
+                    </div>
+                    <div class="col-md-6 input-group">
+                        <select [(ngModel)]="editorial" name="editorial" class="form-control">
+                            <option *ngFor="let editorial of editoriales" value="{{editorial}}">{{editorial}}</option>
+                        </select>
+                        <button class="btn btn-success my-2 my-sm-0" type="button"
+                            (click)="buscarPorEditorial()">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Formulario de nuevo Ususario-->
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" id="titulocarta">CATALOGO LIBROS</h4>
+            <div class="row image-grid">
+                <ng-container *ngFor="let item of productos;let indice=index">
+                    <div class="separador2 col-sm-4 col-md-4 ">
+                        <div class="panel panel-default">
+                            <div class="panel-body tamano d-flex justify-content-center">
+                                <a target="_blank">
+                                    <img alt="" class="img-responsive center-block" src="../assets/default_product.png"
+                                        width="100" height="100">
+                                </a>
+                            </div>
+                            <div class="separador panel-footer d-flex justify-content-center" name="gccode">
+                                {{item.nombre}}
+                            </div>
+                            <div class="separador panel-footer d-flex justify-content-center" name="gcname">
+                                Q. {{item.precio}}
+                            </div>
+                            <div>
+                                <button type="button" id="comprar" (click)="agregarAlCarrito(item.sku)"
+                                    class="btn btn-primary mr-2 col-12">AÑADIR AL
+                                    CARRITO</button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
