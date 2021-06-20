@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
       localStorage.removeItem('userid');
       localStorage.removeItem('tipoUsuario');
       localStorage.removeItem('username');
+      localStorage.removeItem('producto');
       localStorage.removeItem('nombre');
       this.router.navigate(['login']);
     }
@@ -89,14 +90,14 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['home']);  //VISTA USUARIO 
             Utils.indices = [
               {
-                title: 'Ingresar',
-                url: '/login',
-                icon: 'mdi-login'
+                title: 'Librería',
+                url: '/catalogo',
+                icon: 'mdi-library-books'
               },
               {
-                title: 'Registrarse',
-                url: '/registrarse',
-                icon: 'mdi-account-multiple-plus'
+                title: 'Carrito de compras',
+                url: '/carrito',
+                icon: 'mdi-cart'
               },
               {
                 title: 'Mis Datos',

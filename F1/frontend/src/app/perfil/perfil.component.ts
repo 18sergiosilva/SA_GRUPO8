@@ -27,10 +27,10 @@ export class PerfilComponent implements OnInit {
   endpoint = "http://18.118.255.26:3005";
 
   ngOnInit() {
+    if(localStorage.getItem('logged') === '0'){
+      this.router.navigate(['login']);
+    }
     this.entrar();
-    Utils.indices=[];
-    Utils.indices = [
-    ];
   }
 
   entrar() {
@@ -52,13 +52,7 @@ export class PerfilComponent implements OnInit {
         this.correo=data.correo;
 
         
-        Utils.indices.push(
-          {
-            title: 'Cerrar Sesión',
-            url: '/login',
-            icon: 'mdi-exit-to-app'
-          }
-        );
+        
       },
         (error: HttpErrorResponse) => {
           console.log(error.error.codigoEstado);

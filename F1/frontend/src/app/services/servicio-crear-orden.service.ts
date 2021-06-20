@@ -9,13 +9,9 @@ import { map } from 'rxjs/operators';
 export class ServicioCrearOrdenService {
   constructor(private http: HttpClient, private router: Router) { }
 
-  crearOrden(orden,user,id) {
-    let misheaders = new HttpHeaders({});
-    misheaders = misheaders.set('usuario', user);
-    misheaders = misheaders.set('idusuario', id);
-    let options = { headers: misheaders };
-    let apiUrl = 'http://3.140.186.177:3004/ordenes/sinRegistro';
-    return this.http.post<any>(apiUrl, orden,options)
+  crearOrden(orden) {
+    let apiUrl = 'http://18.118.255.26:3004/ordenes/sinRegistro';
+    return this.http.post<any>(apiUrl, orden)
       .pipe(map(data => {
         return data;
       }));

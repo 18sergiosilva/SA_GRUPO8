@@ -13,13 +13,13 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CrearOrdenComponent implements OnInit {
 
-  constructor(private router: Router, private servicioCrearOrden: ServicioCrearOrdenService,private toastr: ToastrService) { }
+  constructor(private router: Router, private servicioCrearOrden: ServicioCrearOrdenService, private toastr: ToastrService) { }
 
   activar = 0;
   productos = [];
   datos: any;
   total: number;
-  nombre = "";
+  nombre = localStorage.getItem('nombre');
   nit = "";
   nitEn = "";
   telefono = "";
@@ -132,14 +132,12 @@ export class CrearOrdenComponent implements OnInit {
       }
     }
     this.limpiar();
-    localStorage.setItem("producto","");
+    localStorage.setItem("producto", "");
   }
 
   postOrden(orden) {
-    let userLog = localStorage.getItem("user");
-    let idLog = localStorage.getItem("userid");
     this.servicioCrearOrden
-      .crearOrden(orden,userLog,idLog)
+      .crearOrden(orden)
       .pipe(first())
       .subscribe(
         (data) => {
@@ -152,6 +150,7 @@ export class CrearOrdenComponent implements OnInit {
               if (resultado.value) {
                 this.limpiar();
                 this.toastr.success('Numero de Orden', data.codigoOrden);
+                localStorage.removeItem('producto');
                 //this.router.navigate(["consultar"]);
               }
             });
@@ -224,20 +223,16 @@ export class CrearOrdenComponent implements OnInit {
 
   encriptarTelefono() {
     this.telefonoEn = this.telefono.toString();
-    this.telefonoEn = crypto.AES.encrypt(this.telefonoEn.trim(), this.encPass.trim()).toString();
   }
 
   encriptarDireccion() {
     this.direccionEn = this.direccion;
-    this.direccionEn = crypto.AES.encrypt(this.direccionEn.trim(), this.encPass.trim()).toString();
-    //crypto.AES.decrypt(this.direccionEn.trim(), this.encPass.trim()).toString(crypto.enc.Utf8);
 
 
   }
 
   encriptarNit() {
     this.nitEn = this.nit.toString();
-    this.nitEn = crypto.AES.encrypt(this.nitEn.trim(), this.encPass.trim()).toString();
   }
 }
 
