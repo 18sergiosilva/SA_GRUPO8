@@ -5,6 +5,4 @@ module.exports = (app) => {
     app.get('/producto/:id', productoController.getOne);
     app.get('/producto/editorial/:editorial',productoController.getbyEditorial);
     app.get('/producto/genero/:genero',productoController.getbyGenero);
-    app.get('/allbitacoras',productoController.getBitacora);
-    app.get('/productoesb',productoController.getAllESB);
 }
