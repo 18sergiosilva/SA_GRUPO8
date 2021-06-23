@@ -1,6 +1,6 @@
 const modelProducto = require('../models/producto.model');
 var logs = require('../utils/log');
-
+const bitacora = require('../models/bitacora')
 module.exports = {
     getAll: (req, res) => {
 
@@ -135,6 +135,23 @@ module.exports = {
             return res.status(500).send({
                 mensaje: "Ocurrio un error al buscar el producto."
             })
+        })
+    },
+    getBitacora: (req,res)=>{
+        bitacora.find({}).then(data => {
+                obj = data;
+                return res.send(data);
+        }).catch(err => {
+            console.log(err);
+            return res.status(500).send({
+                mensaje: "Ocurrio un error al buscar el producto."
+            })
+        })
+    },
+    getAllESB:(req,res)=>{
+        res.status(200).send({
+            mensaje:"Se enviaron los datos correctamente",
+            status:200
         })
     }
 }
