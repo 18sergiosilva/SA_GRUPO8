@@ -1,6 +1,7 @@
 const modelProducto = require('../models/producto.model');
 const { borrarImagen } = require("../utils/s3.utils");
 var logs = require('../utils/log');
+const bitacora = require('../models/bitacora');
 
 module.exports = {
     eliminar: (req, res) => {
@@ -21,6 +22,7 @@ module.exports = {
 
         modelProducto.findByIdAndRemove(idProducto).then(producto => {
             if (producto) {
+                bitacora.create({Editorial:req.headers.usuario,actividad:"Producto eliminado por editorial"}).then();
                 return res.status(200).send({
                     mensaje: "Eliminado correctamente",
                     codigoEstado:200
