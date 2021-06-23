@@ -10,7 +10,7 @@ const bitacora = require('../models/bitacora');
 router.post('/createesb', async(req,res,next)=>{
     res.json({ status: 200, mensaje: "El producto se creo con exito", data:req.body });
 });
-router.post('/', async (req, res, next) => {
+router.post('/', async (req, res, next) => { 
     try {
         //throw new Error('something bad happened');
         var existe = await functions.existeProducto(req.body.sku);
