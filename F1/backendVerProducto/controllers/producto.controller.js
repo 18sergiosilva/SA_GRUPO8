@@ -147,5 +147,11 @@ module.exports = {
                 mensaje: "Ocurrio un error al buscar el producto."
             })
         })
+    },
+    getAllESB:(req,res)=>{
+        res.status(200).send({
+            mensaje:"Se enviaron los datos correctamente",
+            status:200
+        })
     }
 }
