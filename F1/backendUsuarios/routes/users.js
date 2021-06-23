@@ -34,6 +34,21 @@ router.post('/register', async (req, res, next) => {
   }
 });
 
+
+
+router.post('/registerESB', async (req, res, next) => {
+
+  return res.status(200).send({
+    codigoEstado: 200,
+    mensaje: "Datos aceptados correctamente en registro", data:req.body
+  });
+  
+});
+
+
+
+
+
 router.post('/login', async (req, res, next) => {
   const { username, contraseña } = req.body;
 
@@ -73,6 +88,24 @@ router.post('/login', async (req, res, next) => {
     });
 
 })
+
+
+
+router.post('/loginESB', async (req, res, next) => {
+  
+
+  return res.status(200).send({
+    codigoEstado: 200,
+    mensaje: "Datos aceptados correctamente en login", data:req.body
+  });
+
+})
+
+
+
+
+
+
 router.get('/getallnoacepted', async (req,res,next)=>{
   const status = {status:0};
   usuarios.find(status)
