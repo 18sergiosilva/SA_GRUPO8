@@ -6,6 +6,10 @@ var logs = require('../utils/log');
 const productos = require('../models/productos');
 //const log = require('../models/log');
 
+router.post('/createesb', async(req,res,next)=>{
+    res.json({ status: 200, mensaje: "El producto se creo con exito", data:req.body });
+});
+
 router.post('/', async (req, res, next) => {
     try {
         //throw new Error('something bad happened');

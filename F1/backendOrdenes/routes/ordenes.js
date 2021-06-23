@@ -5,7 +5,9 @@ var logs = require('../utils/log');
 const ordenes = require('../models/ordenes');
 const productos = require('../models/productos');
 
-
+router.post('/nuevaOrdenESB', async(req,res,next)=>{ 
+    res.json({ codigoEstado: 200, mensaje: "La orden se creo con exito en esb", data: req.body });
+})
 router.post('/sinRegistro', async (req, res, next) => {
     try {
         var obj = {};
