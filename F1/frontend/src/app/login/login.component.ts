@@ -81,6 +81,11 @@ export class LoginComponent implements OnInit {
                 title: 'Ver ordenes',
                 url: '/verordenes',
                 icon: 'mdi-note-multiple-outline'
+              },
+              {
+                title: 'Ver Bitácora',
+                url: '/bitacora',
+                icon: 'mdi-history'
               }
             ];
             this.router.navigate(['vista-admin']);  //VISTA ADMIN 
