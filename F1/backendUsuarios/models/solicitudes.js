@@ -16,6 +16,10 @@ var solicitudesSchema = new mongoose.Schema({
     archivo:{
         type:String,
         required:false
+    },
+    status:{
+        type:Number,
+        required:true
     }
 });
 var solicitud = mongoose.model('solicitud', solicitudesSchema);
