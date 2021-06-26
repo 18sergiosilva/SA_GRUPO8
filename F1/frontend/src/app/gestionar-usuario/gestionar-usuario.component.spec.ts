@@ -32,7 +32,7 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
   });
   
-  //Test de Integración 1 
+  /*Test de Integración 1 
   it('Debe retornar True al eliminar un usuario', async(() => {
     try {
     expect(component.cambiarStatus("editorialfrans")).toBeTrue();
@@ -49,5 +49,6 @@ describe('LoginComponent', () => {
     console.log("Error al momento de cargar usuarios");
   }
   }));
+  */
 
 });

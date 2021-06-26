@@ -16,7 +16,7 @@ export class VersolicitudesComponent implements OnInit {
   tabletitle="LISTA DE SOLICITUDES"
   expandContent = true;
 
-  endpoint = "http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3005/solicitudes/";
+  endpoint = "http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3005/solicitudes";
 
   constructor(private router: Router, private http: HttpClient) { }
 
@@ -38,13 +38,13 @@ export class VersolicitudesComponent implements OnInit {
 
   cambiarStatus(libro: string):boolean {
     let editorial = localStorage.getItem('username');
-    this.http.post(this.endpoint+'updatestatus',
+    this.http.post(this.endpoint+'/updatestatus',
     {
       'nombreLibro': libro,
       'Editorial': editorial
     }).toPromise().then((data: any) => {
       Swal.fire({
-        text: 'Solicitud Actualizado',
+        text: 'Solicitud Aceptada',
         icon: 'success',
         confirmButtonText: 'Aceptar',
       })
