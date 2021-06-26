@@ -4,13 +4,13 @@ var functions = require('./functions');
 var logs = require('../utils/log');
 
 const productos = require('../models/productos');
-const bitacora = require('../models/bitacora');
-
 //const log = require('../models/log');
+
 router.post('/createesb', async(req,res,next)=>{
     res.json({ status: 200, mensaje: "El producto se creo con exito", data:req.body });
 });
-router.post('/', async (req, res, next) => { 
+
+router.post('/', async (req, res, next) => {
     try {
         //throw new Error('something bad happened');
         var existe = await functions.existeProducto(req.body.sku);
@@ -30,10 +30,6 @@ router.post('/', async (req, res, next) => {
             Stock: req.body.Stock // stock
 
         };
-        var objbitacora={
-            Editorial: req.body.Editorial,
-            actividad:"Producto creado por editorial "+req.body.Editorial
-        }
 
         if (existe == false) {
             //var imageS3 = await functions.uploadS3File(req.body.imagen, req.body.sku);
@@ -42,7 +38,7 @@ router.post('/', async (req, res, next) => {
 
             //obj.urlImagen = imageS3.Key;
             productos.create(req.body).then();
-            bitacora.create(objbitacora).then();
+
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json'); 
             res.json({ codigoEstado: 200, mensaje: "El producto se creo con exito" });
