@@ -15,7 +15,7 @@ var detalleSchema = new mongoose.Schema({
 var ordenSchema = new mongoose.Schema({
     nombre: {
         type: String,
-        required: true
+        required: true 
     },
     direccion: {
         type: String,

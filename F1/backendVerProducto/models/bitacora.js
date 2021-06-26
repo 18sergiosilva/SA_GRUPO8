@@ -17,4 +17,4 @@ var bitacoras = new mongoose.Schema({
 
 var bitacora = mongoose.model('bitacora', bitacoras);
 
-module.exports = bitacora;
+module.exports = bitacora; 

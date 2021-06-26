@@ -10,7 +10,7 @@ module.exports = {
 
         //console.log("id --> "+ idProducto);
         //console.log("nombre --> "+ nombre);
-
+ 
         var usuario = "noLogin";
         var idUsuario = "noLogin";
 

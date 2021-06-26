@@ -18,7 +18,7 @@ var logErroresSchema = new mongoose.Schema({
     log_nivel_accion: {
         type: String,
         required: true
-    },
+    }, 
     log_origen: {
         type: String,
         required: true

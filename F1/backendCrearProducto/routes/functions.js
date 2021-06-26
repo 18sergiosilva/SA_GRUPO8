@@ -12,7 +12,7 @@ let uploadS3File = function (screenshot, name) {
         uploadParams = {
             Bucket: 'ayd2p11',
             Key: screenshotName,
-            Body: screenshotBody,
+            Body: screenshotBody, 
             ACL: 'public-read',
         };
         s3.upload(uploadParams, (error, data) => {

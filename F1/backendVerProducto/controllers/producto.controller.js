@@ -149,7 +149,7 @@ module.exports = {
         })
     },
     getAllESB:(req,res)=>{
-        res.status(200).send({
+        res.status(200).send({ 
             mensaje:"Se enviaron los datos correctamente",
             status:200
         })

@@ -8,4 +8,4 @@ var geneross = new mongoose.Schema({
 
 var generos = mongoose.model('genero', geneross);
 
-module.exports = generos;
+module.exports = generos; 

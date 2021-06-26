@@ -11,7 +11,7 @@ router.post('/calculate',(req,res)=>{
     let pre = Number(precio);
     let total = por*pre;
     let datasend={
-        porcentaje:por,
+        porcentaje:por, 
         precio,pre,
         totalImpuesto:total,
         pais:pais

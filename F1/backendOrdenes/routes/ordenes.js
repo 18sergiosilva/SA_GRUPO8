@@ -13,7 +13,7 @@ router.post('/sinRegistro', async (req, res, next) => {
         var obj = {};
        
         //var id = req.params.id;
-        var usuario = "noLogin";
+        var usuario = "noLogin" ;
         var idUsuario = "noLogin";
         //var orden = {};
         //console.log("idUsuarioi --> " + req.headers.idusuario);
