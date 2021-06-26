@@ -26,7 +26,7 @@ export class GenerosComponent implements OnInit {
   getData() {
     this.productos = [];
     try {
-      this.http.get('http://18.118.255.26:3000/generos/getAllGenders')
+      this.http.get('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3000/generos/getAllGenders')
         .toPromise().then((data: any) => {
           this.productos = data.data;
           console.log(data);
@@ -43,7 +43,7 @@ export class GenerosComponent implements OnInit {
   agregar() {
     const headers = new HttpHeaders();
     headers.set('usuario', localStorage.getItem('username'))
-    this.http.post('http://18.118.255.26:3000/generos',
+    this.http.post('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3000/generos',
       {
         "genero": this.nuevo_genero
       }).toPromise().then((data: any) => {

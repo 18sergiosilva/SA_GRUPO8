@@ -35,7 +35,7 @@ export class LibrosComponent implements OnInit {
   getGeneros() {
     this.generos = [];
     try {
-      this.http.get('http://18.118.255.26:3000/generos/getAllGenders')
+      this.http.get('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3000/generos/getAllGenders')
         .toPromise().then((data: any) => {
           this.generos = data.data;
           console.log(data);
@@ -49,7 +49,7 @@ export class LibrosComponent implements OnInit {
     this.productos = [];
     this.editorial = localStorage.getItem('nombre');
     try {
-      this.http.get('http://18.118.255.26:3002/producto/editorial/' + this.editorial)
+      this.http.get('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3002/producto/editorial/' + this.editorial)
         .toPromise().then((data: any) => {
           this.productos = data;
           console.log(data);
@@ -62,7 +62,7 @@ export class LibrosComponent implements OnInit {
   agregar() {
     const headers = new HttpHeaders();
     headers.set('usuario', localStorage.getItem('username'))
-    this.http.post('http://18.118.255.26:3000/productos',
+    this.http.post('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3000/productos',
       {
         "sku": this.nuevo_sku,
         "nombre": this.nuevo_nombre,
@@ -81,7 +81,7 @@ export class LibrosComponent implements OnInit {
   }
 
   eliminar(id: string) {
-    const direccion = 'http://18.118.255.26:3001/producto/' + id; // cambiar 
+    const direccion = 'http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3001/producto/' + id; // cambiar 
     this.http.delete(direccion)
     .toPromise().then((data: any) => {
       console.log(data);

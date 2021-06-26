@@ -136,6 +136,16 @@ export class LoginComponent implements OnInit {
               title: 'Solicitudes',
               url: '/versolicitudes',
               icon: 'mdi-format-list-checks'
+            },
+            {
+              title: 'Calculadora',
+              url: '/calculadora',
+              icon: 'mdi-calculator'
+            },
+            {
+              title: 'Mis Datos',
+              url: '/perfil',
+              icon: 'mdi-account-circle'
             }
           ];
         }

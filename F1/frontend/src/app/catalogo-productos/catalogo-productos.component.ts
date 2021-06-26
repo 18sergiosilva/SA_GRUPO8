@@ -37,7 +37,7 @@ export class CatalogoProductosComponent implements OnInit {
   getGenres() {
     this.generos = [];
     try {
-      this.http.get('http://18.118.255.26:3000/generos/getAllGenders')
+      this.http.get('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3000/generos/getAllGenders')
         .toPromise().then((data: any) => {
           this.generos = data.data;
           console.log(data);
@@ -54,7 +54,7 @@ export class CatalogoProductosComponent implements OnInit {
   getEditoriales() {
     this.generos = [];
     try {
-      this.http.get('http://18.118.255.26:3005/users/editoriales')
+      this.http.get('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3005/users/editoriales')
         .toPromise().then((data: any) => {
           this.editoriales = data.data;
           console.log(data);
@@ -67,7 +67,7 @@ export class CatalogoProductosComponent implements OnInit {
   getProductos() {
     this.productos = [];
     try {
-      this.http.get('http://18.118.255.26:3002/producto')
+      this.http.get('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3002/producto')
         .toPromise().then((data: any) => {
           this.productos = data;
           console.log(data);
@@ -80,7 +80,7 @@ export class CatalogoProductosComponent implements OnInit {
   buscarPorGenero () {
     this.productos = [];
     try {
-      this.http.get('http://18.118.255.26:3002/producto/genero/' + this.genero)
+      this.http.get('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3002/producto/genero/' + this.genero)
         .toPromise().then((data: any) => {
           this.productos = data;
           console.log(data);
@@ -93,7 +93,7 @@ export class CatalogoProductosComponent implements OnInit {
   buscarPorEditorial () {
     this.productos = [];
     try {
-      this.http.get('http://18.118.255.26:3002/producto/editorial/' + this.editorial)
+      this.http.get('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3002/producto/editorial/' + this.editorial)
         .toPromise().then((data: any) => {
           this.productos = data;
           console.log(data);
