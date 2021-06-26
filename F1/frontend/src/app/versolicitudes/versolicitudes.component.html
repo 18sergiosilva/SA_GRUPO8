@@ -9,30 +9,29 @@
                     <thead>
                         <tr>
                             <th> </th>
-                            <th> Fecha</th>
-                            <th> ID </th>
                             <th> Editorial </th>
-                            <th> Actividad </th>
+                            <th> Nombre Usuario </th>
+                            <th> Correo </th>
+                            <th> Acciones </th>
                         </tr>
                     </thead>
                     <tbody>
-                         
                         <!-- Repitencia-->
-                        <tr *ngFor="let hist of historial">
+                        <tr *ngFor="let user of users">
                             <td>
-                                <img class="mr-2" src="https://p.kindpng.com/picc/s/280-2801401_me-big-order-form-format-order-icon-png.png" alt="image" />
+                                <img class="mr-2" src="https://img2.freepng.es/20181124/poz/kisspng-vector-graphics-book-computer-icons-encapsulated-p-5bf9f29b3c8296.9918153415431072272479.jpg" alt="image" />
                             </td>
                             <td>
-                                {{hist.fechaGenerado}}
+                                {{user.username}}
                             </td>
                             <td>
-                                {{hist._id}}
+                                {{user.nombres}}
                             </td>
                             <td>
-                                {{hist.Editorial}}
+                                {{user.correo}}
                             </td>
                             <td>
-                                {{hist.actividad}}
+                                <button type="button" class="btn btn-success" (click)="cambiarStatus(user.username)">Confirmar</button>
                             </td>
 
                         </tr>

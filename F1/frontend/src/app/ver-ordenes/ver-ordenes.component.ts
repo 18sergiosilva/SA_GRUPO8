@@ -19,7 +19,7 @@ export class VerOrdenesComponent implements OnInit {
   tabletitle="LISTA DE ORDENES"
   expandContent = true;
 
-  endpoint = "http://18.118.255.26:3004/ordenes/";
+  endpoint = "http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3004/ordenes/";
 
   ngOnInit() {
     if(localStorage.getItem('logged') === '0'){

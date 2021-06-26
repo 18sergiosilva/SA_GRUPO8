@@ -20,7 +20,7 @@ export class BitacoraComponent implements OnInit {
   expandContent = true;
 
   
-  endpoint = "http://18.118.255.26:3004/allbitacoras/";
+  endpoint = "http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3002/allbitacoras";
 
   ngOnInit() {
     if(localStorage.getItem('logged') === '0'){

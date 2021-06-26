@@ -29,6 +29,7 @@ import { EditarLibroComponent } from './editar-libro/editar-libro.component';
 import { GenerosComponent } from './generos/generos.component';
 import { VerOrdenesComponent } from './ver-ordenes/ver-ordenes.component';
 import { BitacoraComponent } from './bitacora/bitacora.component';
+import { VersolicitudesComponent } from './versolicitudes/versolicitudes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -59,7 +60,8 @@ const routes: Routes = [
   { path: 'editarlibro/:id', component:EditarLibroComponent},
   { path: 'generos', component: GenerosComponent},
   { path: 'verordenes', component:VerOrdenesComponent},
-  { path: 'bitacora', component:BitacoraComponent}
+  { path: 'bitacora', component:BitacoraComponent},
+  { path: 'versolicitudes', component:VersolicitudesComponent}
 ];
 
 @NgModule({

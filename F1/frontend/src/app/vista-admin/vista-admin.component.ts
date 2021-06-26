@@ -18,7 +18,7 @@ export class VistaAdminComponent implements OnInit {
   username = "";
   tabletitle="LISTA DE USUARIOS"
 
-  endpoint = "http://18.118.255.26:3005";
+  endpoint = "http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3005";
 
 
   ngOnInit() {
@@ -36,7 +36,6 @@ export class VistaAdminComponent implements OnInit {
       });
     return true;
   }
-
 
   cambiarStatus(u_username: string):boolean {
     this.http.post(this.endpoint+'/users/updatestatus',
