@@ -14,7 +14,7 @@ var impuestos = new mongoose.Schema({
     },
     pais:{
         type: String,
-        required:true
+        required:true 
     },
 });
 

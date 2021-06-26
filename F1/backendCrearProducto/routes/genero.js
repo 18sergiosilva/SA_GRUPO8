@@ -29,5 +29,5 @@ router.get('/getAllGenders',async (req,res,next)=>{
         res.json({codigoEstado:200, data:data});
     });
 });
-
+ 
 module.exports = router;

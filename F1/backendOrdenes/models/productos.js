@@ -11,7 +11,7 @@ var productoSchema = new mongoose.Schema({
     },
     precio: {
         type: Number,
-        required: true
+        required: true 
     },
     descripcion: {
         type: String,

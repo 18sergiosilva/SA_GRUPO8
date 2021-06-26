@@ -18,7 +18,7 @@ var productoSchema = new mongoose.Schema({
             type: String,
             required: true
         },
-        imagen: {
+        imagen: { 
             type: String,
             required: false
         },

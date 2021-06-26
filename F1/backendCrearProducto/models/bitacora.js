@@ -13,7 +13,7 @@ var bitacoras = new mongoose.Schema({
         required: false,
         default: new Date()
     }   
-}); 
+});
 
 var bitacora = mongoose.model('bitacora', bitacoras);
 

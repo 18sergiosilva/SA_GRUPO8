@@ -13,7 +13,7 @@ var logModificarSchema = new mongoose.Schema({
     },
     log_nombre_usuario: {
         type: String,
-        default: null,
+        default: null, 
         required: false
     },
     log_idUsuario: {

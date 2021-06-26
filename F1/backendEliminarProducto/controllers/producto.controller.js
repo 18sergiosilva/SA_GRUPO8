@@ -8,7 +8,7 @@ module.exports = {
         console.log(idProducto);
         
         var obj = {
-            id: idProducto
+            id: idProducto 
         };
         
         //var id = req.params.id;

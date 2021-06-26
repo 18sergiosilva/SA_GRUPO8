@@ -10,7 +10,7 @@ var logErroresSchema = new mongoose.Schema({
         default: "",
         required: false
     },
-    log_id_usuario: {
+    log_id_usuario: { 
         type: String,
         default: null,
         required: false

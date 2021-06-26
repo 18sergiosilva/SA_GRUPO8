@@ -13,7 +13,7 @@ var productoSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    descripcion: {
+    descripcion: { 
         type: String,
         required: true
     },

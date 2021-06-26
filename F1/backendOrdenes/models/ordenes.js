@@ -44,7 +44,7 @@ var ordenSchema = new mongoose.Schema({
         required: false,
         default: 0
     },
-    fechaGenerado: {
+    fechaGenerado: { 
         type: Date,
         required: false,
         default: new Date()

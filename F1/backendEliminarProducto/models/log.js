@@ -15,7 +15,7 @@ var logSchema = new mongoose.Schema({
         default: null,
         required: false
     },
-    log_nivel_accion: {
+    log_nivel_accion: { 
         type: String,
         required: true
     },

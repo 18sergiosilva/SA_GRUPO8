@@ -40,7 +40,7 @@ router.post('/', async (req, res, next) => {
             productos.create(req.body).then();
 
             res.statusCode = 200;
-            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Content-Type', 'application/json'); 
             res.json({ codigoEstado: 200, mensaje: "El producto se creo con exito" });
         }
         else {

@@ -218,7 +218,7 @@ router.post('/updatestatus', async (req, res, next) => {
       });
     }else{
       res.status(404).send({
-        codigoEstado: 404,
+        codigoEstado: 404, 
         mensaje: "No existe usuario con username " + username
       });
     }

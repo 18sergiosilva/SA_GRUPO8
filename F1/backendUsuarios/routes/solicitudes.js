@@ -13,7 +13,7 @@ router.get('/',(req,res,nex)=>{
                 {
                     status:200,
                     datos: data
-                }
+                } 
             )
         })
     }catch(error){
