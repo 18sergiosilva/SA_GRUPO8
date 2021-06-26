@@ -41,7 +41,7 @@ export class SolicitudComponent implements OnInit {
 
   onFileSelected(event: { target: { files: Blob[]; }; }) {
     if (event.target.files) {
-      this.pdf = event.target.files[0].name;
+      //this.pdf = event.target.files[0].name;
     };
   }
 }
