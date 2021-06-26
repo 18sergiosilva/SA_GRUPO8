@@ -23,7 +23,6 @@ export class LibrosComponent implements OnInit {
   nuevo_nombre: string;
   nuevo_genero: string;
   editorial: string;
-  variable: true;
 
 
 

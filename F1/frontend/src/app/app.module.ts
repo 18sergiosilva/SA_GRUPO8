@@ -43,6 +43,7 @@ import { GenerosComponent } from './generos/generos.component';
 import { VerOrdenesComponent } from './ver-ordenes/ver-ordenes.component';
 import { BitacoraComponent } from './bitacora/bitacora.component';
 import { VersolicitudesComponent } from './versolicitudes/versolicitudes.component';
+import { SolicitudComponent } from './solicitud/solicitud.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { VersolicitudesComponent } from './versolicitudes/versolicitudes.compone
     GenerosComponent,
     VerOrdenesComponent,
     BitacoraComponent,
-    VersolicitudesComponent
+    VersolicitudesComponent,
+    SolicitudComponent
   ],
   imports: [
     BrowserModule,
