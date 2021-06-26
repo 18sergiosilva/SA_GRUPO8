@@ -13,7 +13,7 @@ export class VersolicitudesComponent implements OnInit {
 
   // Declaraciones
   solicitudes = [];
-  tabletitle="LISTA DE SOLICITUDES"
+  tabletitle="LISTA DE SOLICITUDES :)"
   expandContent = true;
 
   endpoint = "http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3005/solicitudes/";
