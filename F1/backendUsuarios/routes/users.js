@@ -3,7 +3,7 @@ var router = express.Router();
 var crypto = require("crypto-js");
 
 const usuarios = require('../models/usuarios');
-
+const bitacora = require('../models/bitacora');
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
@@ -224,6 +224,13 @@ router.post('/updatestatus', async (req, res, next) => {
     }
   })
 })
-
+router.get('/allbitacoras',(req,res)=>{
+  bitacora.find({}).then((datas)=>{
+    res.status(200).send({
+      codigo:200,
+      data:datas
+    })
+  });
+});
 
 module.exports = router;
