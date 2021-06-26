@@ -30,6 +30,7 @@ import { GenerosComponent } from './generos/generos.component';
 import { VerOrdenesComponent } from './ver-ordenes/ver-ordenes.component';
 import { BitacoraComponent } from './bitacora/bitacora.component';
 import { VersolicitudesComponent } from './versolicitudes/versolicitudes.component';
+import { SolicitudComponent } from './solicitud/solicitud.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -61,7 +62,8 @@ const routes: Routes = [
   { path: 'generos', component: GenerosComponent},
   { path: 'verordenes', component:VerOrdenesComponent},
   { path: 'bitacora', component:BitacoraComponent},
-  { path: 'versolicitudes', component:VersolicitudesComponent}
+  { path: 'versolicitudes', component:VersolicitudesComponent},
+  { path: 'solicitud', component:SolicitudComponent}
 ];
 
 @NgModule({

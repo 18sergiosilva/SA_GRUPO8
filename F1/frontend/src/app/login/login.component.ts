@@ -97,12 +97,17 @@ export class LoginComponent implements OnInit {
               {
                 title: 'Librería',
                 url: '/catalogo',
-                icon: 'mdi-library-books'
+                icon: 'mdi-book-open-page-variant'
               },
               {
                 title: 'Carrito de compras',
                 url: '/carrito',
                 icon: 'mdi-cart'
+              },
+              {
+                title: 'Solicitud publicación',
+                url: '/solicitud',
+                icon: 'mdi-book-plus'
               },
               {
                 title: 'Mis Datos',
