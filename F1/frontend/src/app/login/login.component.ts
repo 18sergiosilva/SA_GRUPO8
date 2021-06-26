@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   tipoUser = 0;
   titulo = "Ingreso de Usuario";
 
-  endpoint = "http://18.118.255.26:3005";
+  endpoint = "http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3005";
 
   ngOnInit() {
     if (localStorage.getItem('logged') === '1') {
@@ -81,6 +81,11 @@ export class LoginComponent implements OnInit {
                 title: 'Ver ordenes',
                 url: '/verordenes',
                 icon: 'mdi-note-multiple-outline'
+              },
+              {
+                title: 'Ver Bitácora',
+                url: '/bitacora',
+                icon: 'mdi-history'
               }
             ];
             this.router.navigate(['vista-admin']);  //VISTA ADMIN 
@@ -121,6 +126,11 @@ export class LoginComponent implements OnInit {
               title: 'Generos',
               url: '/generos',
               icon: 'mdi-book'
+            },
+            {
+              title: 'Solicitudes',
+              url: '/versolicitudes',
+              icon: 'mdi-format-list-checks'
             }
           ];
         }

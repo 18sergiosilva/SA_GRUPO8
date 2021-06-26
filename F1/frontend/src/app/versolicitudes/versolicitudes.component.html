@@ -1,0 +1,44 @@
+
+<!-- Tabla de Usuarios-->
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{tabletitle}}</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> </th>
+                            <th> Editorial </th>
+                            <th> Nombre Usuario </th>
+                            <th> Correo </th>
+                            <th> Acciones </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Repitencia-->
+                        <tr *ngFor="let user of users">
+                            <td>
+                                <img class="mr-2" src="https://img2.freepng.es/20181124/poz/kisspng-vector-graphics-book-computer-icons-encapsulated-p-5bf9f29b3c8296.9918153415431072272479.jpg" alt="image" />
+                            </td>
+                            <td>
+                                {{user.username}}
+                            </td>
+                            <td>
+                                {{user.nombres}}
+                            </td>
+                            <td>
+                                {{user.correo}}
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-success" (click)="cambiarStatus(user.username)">Confirmar</button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

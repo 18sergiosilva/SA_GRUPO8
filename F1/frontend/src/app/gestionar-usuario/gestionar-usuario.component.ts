@@ -30,7 +30,7 @@ export class GestionarUsuarioComponent implements OnInit {
   cargarUsers(): boolean {
     this.http.get(this.endpoint+'/users/getAll')
       .toPromise().then((data: any) => {
-        console.log(data.data);
+        //console.log(data.data);
         this.users = data.data;
       });
     return true;
@@ -49,7 +49,7 @@ export class GestionarUsuarioComponent implements OnInit {
       this.cargarUsers(); 
       return true;
     });
-    return false;
+    return true;
 
   }
 

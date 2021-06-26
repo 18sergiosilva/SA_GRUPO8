@@ -1,0 +1,45 @@
+
+<!-- Tabla de Usuarios-->
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{tabletitle}}</h4>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> </th>
+                            <th> Fecha</th>
+                            <th> ID </th>
+                            <th> Editorial </th>
+                            <th> Actividad </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                         
+                        <!-- Repitencia-->
+                        <tr *ngFor="let hist of historial">
+                            <td>
+                                <img class="mr-2" src="https://p.kindpng.com/picc/s/280-2801401_me-big-order-form-format-order-icon-png.png" alt="image" />
+                            </td>
+                            <td>
+                                {{hist.fechaGenerado}}
+                            </td>
+                            <td>
+                                {{hist._id}}
+                            </td>
+                            <td>
+                                {{hist.Editorial}}
+                            </td>
+                            <td>
+                                {{hist.actividad}}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

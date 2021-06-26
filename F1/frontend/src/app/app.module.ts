@@ -41,6 +41,8 @@ import { LibrosComponent } from './libros/libros.component';
 import { EditarLibroComponent } from './editar-libro/editar-libro.component';
 import { GenerosComponent } from './generos/generos.component';
 import { VerOrdenesComponent } from './ver-ordenes/ver-ordenes.component';
+import { BitacoraComponent } from './bitacora/bitacora.component';
+import { VersolicitudesComponent } from './versolicitudes/versolicitudes.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,9 @@ import { VerOrdenesComponent } from './ver-ordenes/ver-ordenes.component';
     LibrosComponent,
     EditarLibroComponent,
     GenerosComponent,
-    VerOrdenesComponent
+    VerOrdenesComponent,
+    BitacoraComponent,
+    VersolicitudesComponent
   ],
   imports: [
     BrowserModule,
