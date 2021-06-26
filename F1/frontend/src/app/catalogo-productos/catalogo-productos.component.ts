@@ -23,6 +23,7 @@ export class CatalogoProductosComponent implements OnInit {
   datos: any;
   listaCarrito = [];
   getProducto = "";
+  variable = true;
 
   ngOnInit() {
     this.getEditoriales();
@@ -45,6 +46,11 @@ export class CatalogoProductosComponent implements OnInit {
       console.log(error);
     }
   }
+
+  getArreglo () {
+    return [];
+  }
+
   getEditoriales() {
     this.generos = [];
     try {
