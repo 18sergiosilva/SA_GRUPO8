@@ -29,7 +29,7 @@ export class EditarLibroComponent implements OnInit {
     this.getInfoLibro();
   }
   getInfoLibro() {
-    this.http.get('http://18.118.255.26:3002/producto/' + this.id)
+    this.http.get('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3002/producto/' + this.id)
       .toPromise().then((data: any) => {
         this.nuevo_sku = data.sku;
         this.nuevo_precio = data.precio;
@@ -41,7 +41,7 @@ export class EditarLibroComponent implements OnInit {
   }
   editar() {
     const headers = new HttpHeaders();
-    this.http.put('http://18.118.255.26:3003/producto/' + this.id,
+    this.http.put('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3003/producto/' + this.id,
       {
         "sku": this.nuevo_sku,
         "nombre": this.nuevo_nombre,

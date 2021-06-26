@@ -10,7 +10,7 @@ export class RegistroService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  endpoint = "http://18.118.255.26:3005";
+  endpoint = "http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3005";
 
   registrarCliente(cliente) {
     let apiUrl = this.endpoint+'/users/register';

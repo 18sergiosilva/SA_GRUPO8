@@ -1,0 +1,54 @@
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" id="titulo">CALCULAR IMPUESTOS</h4>
+            <form class="form-sample">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Pais</label>
+                            <div class="col-sm-10">
+                                <select [(ngModel)]="nuevo_pais" name="nuevo_pais" class="form-control">
+                                    <option *ngFor="let pais of paises" value="{{pais}}">{{pais}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Precio</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" [(ngModel)]="nuevo_precio"
+                                    name="nuevo_precio" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">IVA (Porcentaje)</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" [(ngModel)]="nuevo_porcentaje"
+                                    name="nuevo_porcentaje" readonly/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Impuesto a pagar</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" [(ngModel)]="impuesto" name="impuesto"
+                                    readonly />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Total con impuesto</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" [(ngModel)]="total_impuesto" name="total_impuesto"
+                                    readonly />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img [src]="url" class="img-fluid" alt="Responsive image">
+                    </div>
+                </div>
+                <button type="submit" name="agregar" (click)="agregar()" class="btn btn-success mr-2">Calcular</button>
+                <button class="btn btn-light" (click)="cancelar()">Cancelar</button>
+            </form>
+        </div>
+    </div>
+</div>

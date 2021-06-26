@@ -18,7 +18,7 @@ export class GestionarUsuarioComponent implements OnInit {
   username = "";
   tabletitle="LISTA DE USUARIOS"
 
-  endpoint = "http://18.118.255.26:3005";
+  endpoint = "http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3005";
 
   ngOnInit() {
     if(localStorage.getItem('logged') === '0'){

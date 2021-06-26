@@ -26,7 +26,7 @@ export class SolicitudComponent implements OnInit {
   }
 
   agregar() {
-    this.http.post('http://18.118.255.26:3005/solicitudes/new',
+    this.http.post('http://balanceadorsa-1168785242.us-east-2.elb.amazonaws.com:3005/solicitudes/new',
       {
         "nombreLibro": this.nuevo_nombre,
         "nombresAutor": this.nuevo_autor,
