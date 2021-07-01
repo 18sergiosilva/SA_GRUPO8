@@ -4,7 +4,14 @@ var logs = require('../utils/log');
 
 const ordenes = require('../models/ordenes');
 const productos = require('../models/productos');
-
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'jlroblesm24@gmail.com',
+      pass: '159753465'
+    }
+  });
 router.post('/nuevaOrdenESB', async(req,res,next)=>{ 
     res.json({ codigoEstado: 200, mensaje: "La orden se creo con exito en esb", data: req.body });
 })
@@ -135,9 +142,6 @@ router.put('/:id', async (req, res, next) => {
      //let ordenActualizada = {};
      //const obj = {};
      //console.log("idUsuarioi --> " + req.headers.idusuario);
-     if (req.headers.usuario) usuario = req.headers.usuario;
-     if (req.headers.idusuario) idUsuario = req.headers.idusuario;
-
      //const docs = await ordenes.findById(idOrden);
      //ordenActualizada = docs;
 
@@ -233,6 +237,31 @@ router.delete('/:id', async (req, res, next) => {
         res.json({ codigoEstado: 404, mensaje: "Error Inesperado", objetoError: err });
         next(err);
     }
+});
+
+router.post('/sendmail',(req,res,next)=>{
+    const {destino,mensaje}=req.body
+    var mailOptions = {
+        from: 'jlroblesm24@gmail.com',
+        to: destino,
+        subject: 'Factura de pedido realizado',
+        text: mensaje
+      };
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+          res.status(400).send({
+            mensaje:"Error al enviar el mensaje",
+            codigo:400
+        });
+        } else {
+          console.log('Email enviado: ' + info.response);
+          res.status(200).send({
+              mensaje:"Mensaje enviado correctamente",
+              codigo:200
+          });
+        }
+      });
 });
 
 module.exports = router;
