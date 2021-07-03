@@ -45,6 +45,7 @@ import { BitacoraComponent } from './bitacora/bitacora.component';
 import { VersolicitudesComponent } from './versolicitudes/versolicitudes.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { MisordenesComponent } from './misordenes/misordenes.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { CalculatorComponent } from './calculator/calculator.component';
     BitacoraComponent,
     VersolicitudesComponent,
     SolicitudComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    MisordenesComponent
   ],
   imports: [
     BrowserModule,

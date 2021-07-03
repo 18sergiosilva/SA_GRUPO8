@@ -105,6 +105,11 @@ export class LoginComponent implements OnInit {
                 icon: 'mdi-cart'
               },
               {
+                title: 'Estado Ordenes',
+                url: '/estado',
+                icon: 'mdi-truck-fast'
+              },
+              {
                 title: 'Solicitud publicación',
                 url: '/solicitud',
                 icon: 'mdi-book-plus'
