@@ -33,6 +33,7 @@ import { VersolicitudesComponent } from './versolicitudes/versolicitudes.compone
 import { SolicitudComponent } from './solicitud/solicitud.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { MisordenesComponent } from './misordenes/misordenes.component';
+import { MordenComponent } from './morden/morden.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -67,7 +68,8 @@ const routes: Routes = [
   { path: 'versolicitudes', component:VersolicitudesComponent},
   { path: 'solicitud', component:SolicitudComponent},
   { path: 'calculadora', component: CalculatorComponent},
-  { path: 'estado', component: MisordenesComponent}
+  { path: 'estado', component: MisordenesComponent},
+  { path: 'morden/:id', component:MordenComponent}
 ];
 
 @NgModule({

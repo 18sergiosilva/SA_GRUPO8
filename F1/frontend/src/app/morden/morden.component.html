@@ -1,0 +1,60 @@
+<!-- Formulario de nuevo Ususario-->
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Detalle Orden</h4>
+            <form class="form-sample">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">ID Orden</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" [(ngModel)]="id" name="id" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Fecha</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" [(ngModel)]="fecha" name="fecha" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Estado Actual</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" [(ngModel)]="status" name="status" disabled />
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Cliente</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" [(ngModel)]="nombre" name="nombre" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Dirección</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" [(ngModel)]="direccion" name="direccion" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Estado</label>
+                            <div class="col-sm-10">
+                                <select [(ngModel)]="estado" name="estado" class="form-control">
+                                    <option [ngValue] = 0 >Nueva Orden </option>
+                                    <option [ngValue] = 1>Empaquetado</option>
+                                    <option [ngValue] = 2>En Camino</option>
+                                    <option [ngValue] = 3>Entregado</option>
+                                    <option [ngValue] = 4>Cancelada</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" (click)="editar()" class="btn btn-success mr-2">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>

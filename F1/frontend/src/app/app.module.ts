@@ -46,6 +46,7 @@ import { VersolicitudesComponent } from './versolicitudes/versolicitudes.compone
 import { SolicitudComponent } from './solicitud/solicitud.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { MisordenesComponent } from './misordenes/misordenes.component';
+import { MordenComponent } from './morden/morden.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { MisordenesComponent } from './misordenes/misordenes.component';
     VersolicitudesComponent,
     SolicitudComponent,
     CalculatorComponent,
-    MisordenesComponent
+    MisordenesComponent,
+    MordenComponent
   ],
   imports: [
     BrowserModule,

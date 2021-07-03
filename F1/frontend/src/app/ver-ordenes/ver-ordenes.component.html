@@ -12,8 +12,9 @@
                             <th> ID Orden </th>
                             <th> Nombre Usuario </th>
                             <th> NIT </th>
-                            <th> Telefono </th>
                             <th> Fecha </th>
+                            <th> Estado </th>
+                            <th> Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,10 +34,14 @@
                                 {{orden.nit}}
                             </td>
                             <td>
-                                {{orden.telefono}}
+                                {{orden.fechaGenerado}}
                             </td>
                             <td>
-                                {{orden.fechaGenerado}}
+                                {{orden.estado}}
+                            </td>
+                            <td>
+                                <button type="button" class="btn social-btn btn-primary py-0 px-0 mr-2"><i
+                                    class="mdi mdi-36px mdi-account-edit" (click)="editar(orden._id)"></i></button>
                             </td>
 
                         </tr>

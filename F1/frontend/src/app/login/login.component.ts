@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
       localStorage.removeItem('username');
       localStorage.removeItem('producto');
       localStorage.removeItem('nombre');
+      localStorage.removeItem('correo');
       this.router.navigate(['login']);
     }
     Utils.indices = [];
@@ -60,6 +61,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('username', data.username);
         localStorage.setItem('pass', data.contraseña);
         localStorage.setItem('nombre', data.nombres);
+        localStorage.setItem('correo', data.correo);
 
         //USUARIO CLIENTE
         if (localStorage.getItem('tipoUsuario') == '1') {

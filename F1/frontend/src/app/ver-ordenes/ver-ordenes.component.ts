@@ -27,14 +27,41 @@ export class VerOrdenesComponent implements OnInit {
     }
     this.cargarOrdenes();
   }
+  
 
   cargarOrdenes(): boolean {
     this.http.get(this.endpoint)
       .toPromise().then((data: any) => {
         console.log(data.data);
         this.ordenes = data;
+        this.defestados();
       });
     return true;
+  }
+
+  defestados(){
+    this.ordenes.forEach(element => {
+      console.log(element.estado);
+      if(element.estado==0){
+        element.estado="Nueva Orden";
+      }
+      else if(element.estado==1){
+        element.estado="Empaquetado";
+      }
+      else if(element.estado==2){
+        element.estado="En Camino";
+      }
+      else if(element.estado==3){
+        element.estado="Entregado";
+      }
+      else if(element.estado==4){
+        element.estado="Cancelado";
+      }
+    });
+  }
+
+  editar(id: string) {
+    this.router.navigate(['morden', id]);
   }
 
   findDetails(data) {
