@@ -32,6 +32,7 @@ import { BitacoraComponent } from './bitacora/bitacora.component';
 import { VersolicitudesComponent } from './versolicitudes/versolicitudes.component';
 import { SolicitudComponent } from './solicitud/solicitud.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { MordenComponent } from './morden/morden.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -65,7 +66,8 @@ const routes: Routes = [
   { path: 'bitacora', component:BitacoraComponent},
   { path: 'versolicitudes', component:VersolicitudesComponent},
   { path: 'solicitud', component:SolicitudComponent},
-  { path: 'calculadora', component: CalculatorComponent}
+  { path: 'calculadora', component: CalculatorComponent},
+  { path: 'morden/:id', component:MordenComponent}
 ];
 
 @NgModule({
